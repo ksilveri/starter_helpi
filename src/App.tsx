@@ -39,6 +39,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>Kelly Silveri</p>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
