@@ -39,6 +39,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>Neelam Iqbal</p>
         <p>Kelly Silveri</p>
         <p>Connor Klosowski </p>
       </header>
