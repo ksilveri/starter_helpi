@@ -25,15 +25,24 @@ function App() {
     setKey(event.target.value);
   }
   return (
+    <div>
+        <Container>
+            <Row>
+                <Col>First column.</Col>
+                <Col>
+                    Second column.
+                    You can put whatever you want in here, and it will be on the right side.
+                    Maybe try adding an image?
+                </Col>
+            </Row>
+        </Container>
+    </div>
     <div className="App">
       <div className="header-box">
         <h1>The PathFinder</h1>
       </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        </p>
-        <p>Neelam Iqbal</p>
         <p>Kelly Silveri</p>
         <p>Connor Klosowski </p>
       </header>
