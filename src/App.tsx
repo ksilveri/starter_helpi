@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -25,7 +25,12 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div>
+    
+
+    <div className="App">
+        <div className="header-box">
+          <h1>The PathFinder</h1>
+        </div>
         <Container>
             <Row>
                 <Col>First column.</Col>
@@ -36,23 +41,18 @@ function App() {
                 </Col>
             </Row>
         </Container>
-    </div>
-    <div className="App">
-      <div className="header-box">
-        <h1>The PathFinder</h1>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>Kelly Silveri</p>
+          <p>Connor Klosowski </p>
+        </header>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </Form>
       </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Kelly Silveri</p>
-        <p>Connor Klosowski </p>
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-    </div>
   );
 }
 
