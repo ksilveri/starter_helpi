@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (43 ms)
+  ✕ renders learn react link (47 ms)
 
   ● renders learn react link
 
@@ -26,39 +26,54 @@ FAIL src/App.test.tsx
               [36m/>[39m
             [36m</h1>[39m
           [36m</div>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"container"[39m
-          [36m>[39m
+          [36m<div>[39m
             [36m<div[39m
-              [33mclass[39m=[32m"row"[39m
+              [33mclass[39m=[32m"container"[39m
             [36m>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"col"[39m
+                [33mclass[39m=[32m"row row"[39m
               [36m>[39m
-                [0mFirst column.[0m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"col col"[39m
                 [36m>[39m
-                  [0mBasic Career Quiz[0m
-                [36m</button>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"col"[39m
-              [36m>[39m
-                [0mSecond column. You can put whatever you want in here, and it will be on the right side. Maybe try adding an image?[0m
+                  [36m<h3>[39m
+                    [0m Basic Questions [0m
+                  [36m</h3>[39m
+                  [0mTODO: put description here[0m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"col col"[39m
+                [36m>[39m
+                  [36m<h3>[39m
+                    [0m Detailed Questions [0m
+                  [36m</h3>[39m
+                  [0mTODO: put description here[0m
+                [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"row"[39m
+          [36m>[39m
             [36m<div[39m
-              [33mclass[39m=[32m"row"[39m
+              [33mclass[39m=[32m"col"[39m
             [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"col"[39m
-              [36m>[39m
-                [36m<h2>[39m
-                  [0mQuestions[0m
-                [36m</h2>[39m
-              [36m</div>[39m
+              [36m<img[39m
+                [33malt[39m=[32m"Divider"[39m
+                [33mclass[39m=[32m"divider"[39m
+                [33msrc[39m=[32m"https://i.imgur.com/U4hAdwL.jpeg"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"row"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<h2>[39m
+                [0mTake one of our comprehensive Career Quizzes:[0m
+              [36m</h2>[39m
             [36m</div>[39m
           [36m</div>[39m
           [36m<div[39m
@@ -112,14 +127,14 @@ FAIL src/App.test.tsx
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
 All files           |   28.57 |    16.66 |      20 |   28.57 |                   
- App.tsx            |      60 |       50 |   33.33 |      60 | 11,19-25          
+ App.tsx            |      60 |       50 |   33.33 |      60 | 12,20-26          
  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
 --------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.618 s
+Time:        2.697 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
