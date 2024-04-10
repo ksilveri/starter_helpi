@@ -39,11 +39,18 @@ function App() {
                 <Col className="col">
                   <h3> Basic Questions </h3>
                   TODO: put description here
-                  <Button>Basic Career Quiz</Button>
+
+                  <div className='button-container'>
+                  <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Basic Career Quiz</Button>
+                  </div>
+
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
                     TODO: put description here
+                    <div className='button-container'>
+                    <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Detailed Career Quiz</Button>
+                    </div>
                 </Col>
             </Row>
         </Container>
@@ -55,7 +62,7 @@ function App() {
             </Row>
             <Row>
               <Col>
-              <h2>Take one of our comprehensive Career Quizzes:</h2>
+              <h2>Take one of our comprehensive Career Quizzes powered by AI:</h2>
               </Col>
             </Row>
         <div className="footer">
