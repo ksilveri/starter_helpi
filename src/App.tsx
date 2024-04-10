@@ -34,7 +34,9 @@ function App() {
         </div>
         <Container>
             <Row>
-                <Col>First column.</Col>
+                <Col>First column.
+                <Button>Basic Career Quiz</Button>
+                </Col>
                 <Col>
                     Second column.
                     You can put whatever you want in here, and it will be on the right side.
