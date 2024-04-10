@@ -17,11 +17,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: sandybrown; 
-  text-shadow: -2px -2px 0 #002D04,  
-  2px -2px 0 #002D04 ,
- -2px 2px 0 #002D04,
-  2px 2px 0 #002D04 ; 
+  color: tan; 
+  text-shadow: -2px -2px 0 #000000,  
+  2px -2px 0 #000000 ,
+ -2px 2px 0 #000000,
+  2px 2px 0 #000000 ; 
 
   padding: 20px;
   text-align: center;
@@ -33,8 +33,10 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #FFFDD0;
-  padding: 20px;
+  background-color: #254117;
+  padding: 10px;
+  color: whitesmoke;
+  margin-top: auto;
 }
 
 .divider {
@@ -43,6 +45,7 @@
   margin-top: 50px;
   
 }
+
 
 /* Found on https://getcssscan.com/css-buttons-examples, made modifications*/
 .button-33 {
