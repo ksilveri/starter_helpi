@@ -39,6 +39,7 @@ function App() {
                 <Col className="col">
                   <h3> Basic Questions </h3>
                   TODO: put description here
+                  <Button>Basic Career Quiz</Button>
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
