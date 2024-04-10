@@ -35,12 +35,14 @@ function App() {
         </div>
         <div>
         <Container>
-            <Row>
-                <Col>First column.</Col>
-                <Col>
-                    Second column.
-                    You can put whatever you want in here, and it will be on the right side.
-                    Maybe try adding an image?
+            <Row className="row">
+                <Col className="col">
+                  <h3> Basic Questions </h3>
+                  TODO: put description here
+                </Col>
+                <Col className="col">
+                    <h3> Detailed Questions </h3>
+                    TODO: put description here
                 </Col>
             </Row>
         </Container>
