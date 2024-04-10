@@ -19,7 +19,11 @@ FAIL src/App.test.tsx
             [33mclass[39m=[32m"header-box"[39m
           [36m>[39m
             [36m<h1>[39m
-              [0mThe PathFinder[0m
+              [0mThe PathFinder [0m
+              [36m<link[39m
+                [33mhref[39m=[32m"https://fonts.cdnfonts.com/css/bell-bottom-laser"[39m
+                [33mrel[39m=[32m"stylesheet"[39m
+              [36m/>[39m
             [36m</h1>[39m
           [36m</div>[39m
           [36m<div[39m
@@ -39,43 +43,43 @@ FAIL src/App.test.tsx
                 [0mSecond column. You can put whatever you want in here, and it will be on the right side. Maybe try adding an image?[0m
               [36m</div>[39m
             [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m>[39m
+                [36m<h2>[39m
+                  [0mQuestions[0m
+                [36m</h2>[39m
+              [36m</div>[39m
+            [36m</div>[39m
           [36m</div>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"footer"[39m
           [36m>[39m
-            [36m<img[39m
-              [33malt[39m=[32m"logo"[39m
-              [33mclass[39m=[32m"App-logo"[39m
-              [33msrc[39m=[32m"logo.svg"[39m
-            [36m/>[39m
-            [36m<p>[39m
-              [0mKelly Silveri[0m
-            [36m</p>[39m
-            [36m<p>[39m
-              [0mConnor Klosowski [0m
-            [36m</p>[39m
-          [36m</header>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
-          [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
             [36m>[39m
-              [0mAPI Key:[0m
-            [36m</label>[39m
-            [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
-              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-              [33mtype[39m=[32m"password"[39m
-            [36m/>[39m
-            [36m<br />[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mSubmit[0m
-            [36m</button>[39m
-          [36m</form>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+              [36m>[39m
+                [0mAPI Key:[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+                [33mtype[39m=[32m"password"[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit[0m
+              [36m</button>[39m
+            [36m</form>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -109,7 +113,7 @@ All files           |   28.57 |    16.66 |      20 |   28.57 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.734 s
+Time:        2.63 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
