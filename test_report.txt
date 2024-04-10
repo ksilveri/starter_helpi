@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (47 ms)
+  ✕ renders learn react link (48 ms)
 
   ● renders learn react link
 
@@ -40,6 +40,12 @@ FAIL src/App.test.tsx
                     [0m Basic Questions [0m
                   [36m</h3>[39m
                   [0mTODO: put description here[0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mBasic Career Quiz[0m
+                  [36m</button>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"col col"[39m
@@ -134,7 +140,7 @@ All files           |   28.57 |    16.66 |      20 |   28.57 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.697 s
+Time:        2.692 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
