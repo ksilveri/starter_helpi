@@ -1,3 +1,4 @@
+/* eslint-disable no-octal-escape */
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
@@ -32,23 +33,30 @@ function App() {
           <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
+        <div>
         <Container>
+            <Row className="row">
+                <Col className="col">
+                  <h3> Basic Questions </h3>
+                  TODO: put description here
+                </Col>
+                <Col className="col">
+                    <h3> Detailed Questions </h3>
+                    TODO: put description here
+                </Col>
+            </Row>
+        </Container>
+        </div>
             <Row>
-                <Col>First column.
-                <Button>Basic Career Quiz</Button>
-                </Col>
-                <Col>
-                    Second column.
-                    You can put whatever you want in here, and it will be on the right side.
-                    Maybe try adding an image?
-                </Col>
+              <Col>
+              <img src="https://i.imgur.com/U4hAdwL.jpeg" alt="Divider" className="divider" />
+              </Col>
             </Row>
             <Row>
               <Col>
-              <h2>Questions</h2>
+              <h2>Take one of our comprehensive Career Quizzes:</h2>
               </Col>
             </Row>
-        </Container>
         <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
