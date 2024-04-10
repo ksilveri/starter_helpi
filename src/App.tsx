@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
@@ -29,7 +29,8 @@ function App() {
 
     <div className="App">
         <div className="header-box">
-          <h1>The PathFinder</h1>
+          <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          </h1>
         </div>
         <Container>
             <Row>
@@ -40,18 +41,20 @@ function App() {
                     Maybe try adding an image?
                 </Col>
             </Row>
+            <Row>
+              <Col>
+              <h2>Questions</h2>
+              </Col>
+            </Row>
         </Container>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Kelly Silveri</p>
-          <p>Connor Klosowski </p>
-        </header>
+        <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
           <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form>
+      </div>
       </div>
   );
 }
