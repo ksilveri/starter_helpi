@@ -40,12 +40,18 @@ FAIL src/App.test.tsx
                     [0m Basic Questions [0m
                   [36m</h3>[39m
                   [0mTODO: put description here[0m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"button-container"[39m
                   [36m>[39m
-                    [0mBasic Career Quiz[0m
-                  [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"button-33 btn btn-primary"[39m
+                      [33mrole[39m=[32m"button"[39m
+                      [33mstyle[39m=[32m"margin-top: 80px;"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mTake our Basic Career Quiz[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"col col"[39m
@@ -54,6 +60,18 @@ FAIL src/App.test.tsx
                     [0m Detailed Questions [0m
                   [36m</h3>[39m
                   [0mTODO: put description here[0m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"button-container"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"button-33 btn btn-primary"[39m
+                      [33mrole[39m=[32m"button"[39m
+                      [33mstyle[39m=[32m"margin-top: 80px;"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mTake our Detailed Career Quiz[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
@@ -78,7 +96,7 @@ FAIL src/App.test.tsx
               [33mclass[39m=[32m"col"[39m
             [36m>[39m
               [36m<h2>[39m
-                [0mTake one of our comprehensive Career Quizzes:[0m
+                [0mTake one of our comprehensive Career Quizzes powered by AI:[0m
               [36m</h2>[39m
             [36m</div>[39m
           [36m</div>[39m
@@ -140,7 +158,7 @@ All files           |   28.57 |    16.66 |      20 |   28.57 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.692 s
+Time:        2.63 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
