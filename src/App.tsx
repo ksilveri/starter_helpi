@@ -1,3 +1,4 @@
+/* eslint-disable no-octal-escape */
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
@@ -32,6 +33,7 @@ function App() {
           <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
+        <div>
         <Container>
             <Row>
                 <Col>First column.</Col>
@@ -41,12 +43,18 @@ function App() {
                     Maybe try adding an image?
                 </Col>
             </Row>
+        </Container>
+        </div>
             <Row>
               <Col>
-              <h2>Questions</h2>
+              <img src="https://i.imgur.com/U4hAdwL.jpeg" alt="Divider" className="divider" />
               </Col>
             </Row>
-        </Container>
+            <Row>
+              <Col>
+              <h2>Take one of our comprehensive Career Quizzes:</h2>
+              </Col>
+            </Row>
         <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
