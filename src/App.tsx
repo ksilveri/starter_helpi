@@ -41,13 +41,20 @@ function App() {
                     Maybe try adding an image?
                 </Col>
             </Row>
+            <Row>
+              <Col>
+              <h2>Questions</h2>
+              </Col>
+            </Row>
         </Container>
+        <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
           <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form>
+      </div>
       </div>
   );
 }
