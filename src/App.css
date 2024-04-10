@@ -13,12 +13,20 @@
   }
 }
 .header-box {
-  background-color: #006400; 
-  color: white; 
+  background-color: #FFFDD0; 
+  color: darkolivegreen; 
   padding: 20px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
+  font-family: 'BellBottom.Laser', sans-serif;
+  font-size: 22px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFDD0;
+  padding: 20px;
 }
 
 .App-header {
