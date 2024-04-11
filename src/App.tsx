@@ -12,9 +12,17 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+const BasicComponent = (props: { changeBasic: React.MouseEventHandler<HTMLButtonElement> | undefined; }) => {
+  return <button onClick={props.changeBasic}>Basic Career Questions</button>
+}
+
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  
+
+  const [home, setHome] = useState<boolean>(true);
+  const [basic, setBasic] = useState<boolean>(false);
+  const [detail, setDetail] = useState<boolean>(false);
+
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -25,9 +33,21 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+
+  function updateBasic(event: React.ChangeEvent<HTMLInputElement>){
+    setBasic(!basic);
+  }
+
+  function updateDetail(event: React.ChangeEvent<HTMLInputElement>){
+    setDetail(!detail);
+  }
+
+
+
   return (
     
-
+<body>
     <div className="App">
         <div className="header-box">
           <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
@@ -39,7 +59,11 @@ function App() {
                 <Col className="col">
                   <h3> Basic Questions </h3>
                   TODO: put description here
-                  <Button>Basic Career Quiz</Button>
+                  
+                  <Button
+
+                  onClick = {updateBasic}>Basic Career Quiz</Button>
+                  
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
@@ -56,6 +80,9 @@ function App() {
             <Row>
               <Col>
               <h2>Take one of our comprehensive Career Quizzes:</h2>
+        
+              
+              
               </Col>
             </Row>
         <div className="footer">
@@ -67,7 +94,9 @@ function App() {
         </Form>
       </div>
       </div>
+      </body>
   );
+ 
 }
 
 export default App;
