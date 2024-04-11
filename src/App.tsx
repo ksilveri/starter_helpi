@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-//import { JsxElement } from 'typescript';
+import { Button, Form} from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -53,6 +55,16 @@ function App(): JSX.Element{
           <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
+<<<<<<< HEAD
+        <header className="App-header">
+        
+          <img src={logo} className="App-logo" alt="logo" />
+          
+
+          <p>Kelly Silveri</p>
+          <p>Connor Klosowski </p>
+        </header>
+=======
         <div>
         <Container>
             <Row className="row">
@@ -85,6 +97,7 @@ function App(): JSX.Element{
             </div>
            
         <div className="footer">
+>>>>>>> 7a26bd478361cc88f3ee14f22fe0b345f0850204
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
