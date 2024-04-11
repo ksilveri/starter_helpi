@@ -17,17 +17,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: tan; 
-  text-shadow: -2px -2px 0 #000000,  
-  2px -2px 0 #000000 ,
- -2px 2px 0 #000000,
-  2px 2px 0 #000000 ; 
-
-  padding: 20px;
+  color: #254117; 
+  text-shadow: -2px -2px 0#ffffff,  
+  2px -2px 0 #ffffff ,
+ -2px 2px 0 #ffffff,
+  2px 2px 0 #ffffff ; 
+  padding: 40px;
   text-align: center;
   font-family: 'BellBottom.Laser', sans-serif;
-  font-size: 22px;
+  font-size: 35px;
 }
+
 
 .footer {
   position: fixed;
