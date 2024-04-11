@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+//import { JsxElement } from 'typescript';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -12,7 +13,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-function App() {
+function App(): JSX.Element{
   const [key, setKey] = useState<string>(keyData); //for api key input
 
   const [home, setHome] = useState<boolean>(true);
@@ -30,15 +31,15 @@ function App() {
     setKey(event.target.value);
   }
 
-  function updateHome(event: React.ChangeEvent<HTMLInputElement>){
+  function updateHome():void{
     setHome(!home);
   }
 
-  function updateBasic(event: React.ChangeEvent<HTMLInputElement>){
+  function updateBasic():void{
     setBasic(!basic);
   }
 
-  function updateDetail(event: React.ChangeEvent<HTMLInputElement>){
+  function updateDetail():void{
     setDetail(!detail);
   }
 
@@ -66,7 +67,8 @@ function App() {
                     <h3> Detailed Questions </h3>
                     TODO: put description here
                     <div className='button-container'>
-                    <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Detailed Career Quiz</Button>
+                    <Button className="button-33" role="button" style={{marginTop: '80px'}}
+                      onClick={updateDetail}> Take our Detailed Career Quiz</Button>
                     </div>
                 </Col>
             </Row>
