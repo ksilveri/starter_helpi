@@ -12,10 +12,6 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-const BasicComponent = (props: { changeBasic: React.MouseEventHandler<HTMLButtonElement> | undefined; }) => {
-  return <button onClick={props.changeBasic}>Basic Career Questions</button>
-}
-
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
 
@@ -34,6 +30,9 @@ function App() {
     setKey(event.target.value);
   }
 
+  function updateHome(event: React.ChangeEvent<HTMLInputElement>){
+    setHome(!home);
+  }
 
   function updateBasic(event: React.ChangeEvent<HTMLInputElement>){
     setBasic(!basic);
@@ -46,11 +45,11 @@ function App() {
 
 
   return (
-    
-<body>
+    <body>
+
     <div className="App">
         <div className="header-box">
-          <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
         <div>
@@ -59,42 +58,43 @@ function App() {
                 <Col className="col">
                   <h3> Basic Questions </h3>
                   TODO: put description here
-                  
-                  <Button
-
-                  onClick = {updateBasic}>Basic Career Quiz</Button>
-                  
+                 <div className='button-container'>
+                  <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Basic Career Quiz</Button>
+                  </div>
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
                     TODO: put description here
+                    <div className='button-container'>
+                    <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Detailed Career Quiz</Button>
+                    </div>
                 </Col>
             </Row>
         </Container>
         </div>
             <Row>
               <Col>
-              <img src="https://i.imgur.com/U4hAdwL.jpeg" alt="Divider" className="divider" />
+              <img src="https://i.imgur.com/U4hAdwL.jpeg" alt="Divider" className='divider'/>
               </Col>
             </Row>
-            <Row>
-              <Col>
-              <h2>Take one of our comprehensive Career Quizzes:</h2>
-        
-              
-              
-              </Col>
-            </Row>
+            <div className='quiz-content'>
+              <h2>Take one of our comprehensive Career Quizzes powered by AI:</h2>
+            </div>
+           
         <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          <Button className="Submit" onClick={handleSubmit}>Submit</Button>
         </Form>
       </div>
+      (basic && (
+              <div className='basic'>
+                <div className='basic'>Basic</div></div>
+            ))
       </div>
-      </body>
+    </body>
   );
  
 }
