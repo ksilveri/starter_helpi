@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -31,18 +34,11 @@ function App() {
         <div className="header-box">
           <h1>The PathFinder</h1>
         </div>
-        <Container>
-            <Row>
-                <Col>First column.</Col>
-                <Col>
-                    Second column.
-                    You can put whatever you want in here, and it will be on the right side.
-                    Maybe try adding an image?
-                </Col>
-            </Row>
-        </Container>
         <header className="App-header">
+        
           <img src={logo} className="App-logo" alt="logo" />
+          
+
           <p>Kelly Silveri</p>
           <p>Connor Klosowski </p>
         </header>
