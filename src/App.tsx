@@ -31,9 +31,9 @@ function App(): JSX.Element{
     setKey(event.target.value);
   }
 
-  function updateHome():void{
-    setHome(!home);
-  }
+  //function updateHome():void{
+    //setHome(!home);
+  //}
 
   function updateBasic():void{
     setBasic(!basic);
