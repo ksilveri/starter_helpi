@@ -16,7 +16,7 @@ if (prevKey !== null) {
 function App(): JSX.Element{
   const [key, setKey] = useState<string>(keyData); //for api key input
 
-  const [home, setHome] = useState<boolean>(true);
+  //const [home, setHome] = useState<boolean>(true);
   const [basic, setBasic] = useState<boolean>(false);
   const [detail, setDetail] = useState<boolean>(false);
 
@@ -58,15 +58,15 @@ function App(): JSX.Element{
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
-                  TODO: put description here
+                  The basic quiz will allow you to explore basic interests and aren't comprehensive if you aren't ready to confirm your career pathway.
                  <div className='button-container'>
                   <Button className="button-33" role="button" style={{marginTop: '80px'}}
-                  onClick={updateBasic}>bTake our Basic Career Quiz</Button>
+                  onClick={updateBasic}>Take our Basic Career Quiz</Button>
                   </div>
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
-                    TODO: put description here
+                    The detailed quiz is perfect if you are ready to explore heavier interests and be place in your forever job. It is more comprehensive so that your interests and skills are well gauged. 
                     <div className='button-container'>
                     <Button className="button-33" role="button" style={{marginTop: '80px'}}
                       onClick={updateDetail}> Take our Detailed Career Quiz</Button>
