@@ -14,7 +14,11 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  
+
+  const [home, setHome] = useState<boolean>(true);
+  const [basic, setBasic] = useState<boolean>(false);
+  const [detail, setDetail] = useState<boolean>(false);
+
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -25,7 +29,24 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function updateHome(event: React.ChangeEvent<HTMLInputElement>){
+    setHome(!home);
+  }
+
+  function updateBasic(event: React.ChangeEvent<HTMLInputElement>){
+    setBasic(!basic);
+  }
+
+  function updateDetail(event: React.ChangeEvent<HTMLInputElement>){
+    setDetail(!detail);
+  }
+
+
+
   return (
+    <body>
+
     <div className="App">
         <div className="header-box">
           <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
@@ -37,7 +58,7 @@ function App() {
                 <Col className="col">
                   <h3> Basic Questions </h3>
                   TODO: put description here
-                  <div className='button-container'>
+                 <div className='button-container'>
                   <Button className="button-33" role="button" style={{marginTop: '80px'}}>Take our Basic Career Quiz</Button>
                   </div>
                 </Col>
@@ -59,16 +80,23 @@ function App() {
             <div className='quiz-content'>
               <h2>Take one of our comprehensive Career Quizzes powered by AI:</h2>
             </div>
+           
         <div className="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          <Button className="Submit" onClick={handleSubmit}>Submit</Button>
         </Form>
       </div>
+      (basic && (
+              <div className='basic'>
+                <div className='basic'>Basic</div></div>
+            ))
       </div>
+    </body>
   );
+ 
 }
 
 export default App;
