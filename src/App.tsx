@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
         <div className="header-box">
-          <h1>The PathFinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
         <div>
