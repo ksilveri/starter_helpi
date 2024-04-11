@@ -89,10 +89,6 @@ function App() {
           <Button className="Submit" onClick={handleSubmit}>Submit</Button>
         </Form>
       </div>
-      (basic && (
-              <div className='basic'>
-                <div className='basic'>Basic</div></div>
-            ))
       </div>
     </body>
   );
