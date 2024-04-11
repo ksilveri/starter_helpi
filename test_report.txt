@@ -19,7 +19,7 @@ FAIL src/App.test.tsx
             [33mclass[39m=[32m"header-box"[39m
           [36m>[39m
             [36m<h1>[39m
-              [0mThe PathFinder [0m
+              [0mThe Pathfinder [0m
               [36m<link[39m
                 [33mhref[39m=[32m"https://fonts.cdnfonts.com/css/bell-bottom-laser"[39m
                 [33mrel[39m=[32m"stylesheet"[39m
@@ -154,7 +154,7 @@ All files           |   28.57 |    16.66 |      20 |   28.57 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.814 s
+Time:        2.839 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
