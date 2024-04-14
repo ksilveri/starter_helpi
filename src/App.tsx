@@ -76,7 +76,7 @@ function App(): JSX.Element{
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
-                  The basic quiz will allow you to explore basic interests and aren't comprehensive if you aren't ready to confirm your career pathway.
+                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in!</p>
                   <div className="button-container">
                     <Button className="button-33" style={{ marginTop: '80px' }} onClick={updateBasic}>
                         Take our Basic Career Quiz
@@ -85,7 +85,7 @@ function App(): JSX.Element{
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
-                    The detailed quiz is perfect if you are ready to explore heavier interests and be place in your forever job. It is more comprehensive so that your interests and skills are well gauged. 
+                    <p>The detailed career quiz consists of short response questions in order to gain a better understanding of your interets. We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>
                     <div className="button-container">
                       <Button className="button-33" style={{ marginTop: '80px' }} onClick={updateDetail}>
                         Take our Detailed Career Quiz
