@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (75 ms)
+  ✕ renders learn react link (80 ms)
 
   ● renders learn react link
 
@@ -85,7 +85,9 @@ FAIL src/App.test.tsx
                     [36m<h3>[39m
                       [0m Basic Questions [0m
                     [36m</h3>[39m
-                    [0mThe basic quiz will allow you to explore basic interests and aren't comprehensive if you aren't ready to confirm your career pathway.[0m
+                    [36m<p>[39m
+                      [0mThe basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in![0m
+                    [36m</p>[39m
                     [36m<div[39m
                       [33mclass[39m=[32m"button-container"[39m
                     [36m>[39m
@@ -104,7 +106,9 @@ FAIL src/App.test.tsx
                     [36m<h3>[39m
                       [0m Detailed Questions [0m
                     [36m</h3>[39m
-                    [0mThe detailed quiz is perfect if you are ready to explore heavier interests and be place in your forever job. It is more comprehensive so that your interests and skills are well gauged.[0m
+                    [36m<p>[39m
+                      [0mThe detailed career quiz consists of short response questions in order to gain a better understanding of your interets. We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you![0m
+                    [36m</p>[39m
                     [36m<div[39m
                       [33mclass[39m=[32m"button-container"[39m
                     [36m>[39m
@@ -201,7 +205,7 @@ All files           |   24.24 |    21.42 |      10 |   24.24 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.8 s
+Time:        2.808 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
