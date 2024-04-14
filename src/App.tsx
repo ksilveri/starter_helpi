@@ -66,12 +66,12 @@ function App(): JSX.Element{
     <div className="App">
         <div className="header-box">
           <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          <div className="nav-bar">
+          <Button className="button-33" style={{ marginRight: '2400px', marginBottom: '300'}} onClick={handleClick}>Home</Button>
+          </div>
           </h1>
         </div>
         <div>
-          <div className="nav-bar">
-          <Button className="button-33" style={{ marginRight: '1500px' }} onClick={handleClick}>Home</Button>
-          </div>
         <Container>
             <Row className="row">
                 <Col className="col">
