@@ -5,7 +5,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:17:33)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:22:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (79 ms)
+  ✕ renders learn react link (77 ms)
 
   ● renders learn react link
 
@@ -80,7 +80,6 @@ FAIL src/App.test.tsx
                     [36m>[39m
                       [36m<button[39m
                         [33mclass[39m=[32m"button-33 btn btn-primary"[39m
-                        [33mrole[39m=[32m"button"[39m
                         [33mstyle[39m=[32m"margin-top: 80px;"[39m
                         [33mtype[39m=[32m"button"[39m
                       [36m>[39m
@@ -100,11 +99,10 @@ FAIL src/App.test.tsx
                     [36m>[39m
                       [36m<button[39m
                         [33mclass[39m=[32m"button-33 btn btn-primary"[39m
-                        [33mrole[39m=[32m"button"[39m
                         [33mstyle[39m=[32m"margin-top: 80px;"[39m
                         [33mtype[39m=[32m"button"[39m
                       [36m>[39m
-                        [0m Take our Detailed Career Quiz[0m
+                        [0mTake our Detailed Career Quiz[0m
                       [36m</button>[39m
                     [36m</div>[39m
                   [36m</div>[39m
@@ -182,15 +180,17 @@ FAIL src/App.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |      32 |    16.66 |   14.28 |      32 |                   
- App.tsx            |   57.14 |       50 |      20 |   57.14 | 13,25-43          
+All files           |   27.58 |       30 |   11.11 |   27.58 |                   
+ App.tsx            |      50 |       50 |      20 |      50 | 18,30-50          
+ BasicQuiz.tsx      |       0 |      100 |       0 |       0 | 5                 
+ DetailQuiz.tsx     |       0 |      100 |       0 |       0 | 6                 
  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
 --------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.269 s
+Time:        2.78 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
