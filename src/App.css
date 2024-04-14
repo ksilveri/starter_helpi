@@ -22,10 +22,13 @@
   2px -2px 0 #ffffff ,
  -2px 2px 0 #ffffff,
   2px 2px 0 #ffffff ; 
-  padding: 40px;
+  padding: 60px;
   text-align: center;
   font-family: 'BellBottom.Laser', sans-serif;
-  font-size: 35px;
+}
+
+.title {
+  font-size: 60px;
 }
 
 
@@ -36,7 +39,20 @@
   background-color: #254117;
   padding: 10px;
   color: whitesmoke;
-  margin-top: auto;
+  display: flex; 
+  justify-content: center; 
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.footer form {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  width: auto; 
+}
+
+.footer .form-control {
+  max-width: 200px; 
 }
 
 .divider {
@@ -55,6 +71,7 @@
   color: whitesmoke;
   cursor: pointer;
   display: inline-block;
+  
   font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
   padding: 7px 20px;
   text-align: center;
@@ -69,6 +86,59 @@
 .button-33:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.1) rotate(-1.5deg);
+  background-color: #254117;
+}
+
+.button-33:visited {
+  background-color:#254117;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1);
+
+}
+
+.button-33:focus {
+  outline: none;
+  background-color: #254117;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.1);
+}
+
+.button-34 {
+  background-color: #0d9c6a;
+  border-radius: 100px;
+  box-shadow: rgba(255, 255, 255, 0.368) 0 -25px 18px -14px inset,rgba(255, 255, 255, 0.15) 0 1px 10px,rgba(255, 255, 255, 0.15) 0 1px 4px,rgba(255, 255, 255, 0.15) 0 4px 8px,rgba(255, 255, 255, 0.15) 0 8px 16px,rgba(255, 255, 255, 0.15) 0 16px 32px;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-34:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.1);
+  background-color: #0d9c6a;
+}
+
+.button-34:visited {
+  background-color:#0d9c6a;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1);
+
+}
+
+.button-34:focus {
+  outline: none;
+  background-color: #0d9c6a;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.1);
 }
 
 
@@ -76,6 +146,7 @@
   display:flex;
 }
 .col {
+  padding-top: 15px;
   flex: 50%;
   padding-left: 125px;
   padding-right: 125px;

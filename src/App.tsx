@@ -57,7 +57,7 @@ function App(): JSX.Element{
 
     <div className="App">
         <div className="header-box">
-          <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          <h1 className='title'>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </h1>
         </div>
         <div>
@@ -97,10 +97,12 @@ function App(): JSX.Element{
            
         <div className="footer">
         <Form>
-          <Form.Label>API Key:</Form.Label>
+          <Form.Label>API Key:  <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
-          <Button className="Submit" onClick={handleSubmit}>Submit</Button>
+          <div className='button-container'>
+          <Button className="button-34" onClick={handleSubmit}>Submit</Button>
+          </div>
         </Form>
       </div>
       </div>
