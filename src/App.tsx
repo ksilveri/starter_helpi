@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import BasicQuiz from './BasicQuiz';
 import DetailQuiz from './DetailQuiz'
 
+
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -50,7 +51,14 @@ function App(): JSX.Element{
     setBasic(false);
   }
 
-
+  function handleClick(): void{
+    if(setDetail){
+      setDetail(false);
+    }
+    if(setBasic){
+      setBasic(false);
+    }
+  }
 
   return (
     <body>
@@ -61,6 +69,9 @@ function App(): JSX.Element{
           </h1>
         </div>
         <div>
+          <div className="nav-bar">
+          <Button className="button-33" style={{ marginRight: '1500px' }} onClick={handleClick}>Home</Button>
+          </div>
         <Container>
             <Row className="row">
                 <Col className="col">
