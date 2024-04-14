@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (77 ms)
+  ✕ renders learn react link (75 ms)
 
   ● renders learn react link
 
@@ -59,20 +59,20 @@ FAIL src/App.test.tsx
                   [33mhref[39m=[32m"https://fonts.cdnfonts.com/css/bell-bottom-laser"[39m
                   [33mrel[39m=[32m"stylesheet"[39m
                 [36m/>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"nav-bar"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"button-33 btn btn-primary"[39m
+                    [33mstyle[39m=[32m"margin-right: 2400px;"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mHome[0m
+                  [36m</button>[39m
+                [36m</div>[39m
               [36m</h1>[39m
             [36m</div>[39m
             [36m<div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"nav-bar"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"button-33 btn btn-primary"[39m
-                  [33mstyle[39m=[32m"margin-right: 1500px;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mHome[0m
-                [36m</button>[39m
-              [36m</div>[39m
               [36m<div[39m
                 [33mclass[39m=[32m"container"[39m
               [36m>[39m
@@ -201,7 +201,7 @@ All files           |   24.24 |    21.42 |      10 |   24.24 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.729 s
+Time:        2.8 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
