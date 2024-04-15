@@ -17,16 +17,32 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 40px;
+  text-align: center;
+  font-family: 'BellBottom.Laser', sans-serif;
+}
+
+.home-button {
+  font-size: 60px;
+  background-color: transparent;
+  border: 0;
   color: #254117; 
   text-shadow: -2px -2px 0#ffffff,  
   2px -2px 0 #ffffff ,
  -2px 2px 0 #ffffff,
   2px 2px 0 #ffffff ; 
-  padding: 40px;
-  text-align: center;
-  font-family: 'BellBottom.Laser', sans-serif;
-  font-size: 35px;
+  padding: 0px;
+
 }
+
+
+.nav-bar {
+  padding: 0px;
+  margin-top:0px;
+  bottom: auto;
+  margin-right: 2000px;
+}
+
 
 
 .footer {
@@ -36,7 +52,20 @@
   background-color: #254117;
   padding: 10px;
   color: whitesmoke;
-  margin-top: auto;
+  display: flex; 
+  justify-content: center; 
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.footer form {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  width: auto; 
+}
+
+.footer .form-control {
+  max-width: 200px; 
 }
 
 .divider {
@@ -46,6 +75,9 @@
   
 }
 
+.title {
+  font-size: 50px;
+}
 
 /* Found on https://getcssscan.com/css-buttons-examples, made modifications*/
 .button-33 {
@@ -55,6 +87,7 @@
   color: whitesmoke;
   cursor: pointer;
   display: inline-block;
+  
   font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
   padding: 7px 20px;
   text-align: center;
@@ -69,6 +102,49 @@
 .button-33:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.1) rotate(-1.5deg);
+  background-color: #254117;
+}
+
+
+
+.button-33:focus {
+  outline: none;
+  background-color: #595f5c;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 -25px 18px -14px inset,rgba(29, 31, 30, 0.25) 0 1px 2px,rgba(29, 32, 31, 0.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.2);
+}
+
+
+.button-34 {
+  background-color: #0d9c6a;
+  border-radius: 100px;
+  box-shadow: rgba(255, 255, 255, 0.368) 0 -25px 18px -14px inset,rgba(255, 255, 255, 0.15) 0 1px 10px,rgba(255, 255, 255, 0.15) 0 1px 4px,rgba(255, 255, 255, 0.15) 0 4px 8px,rgba(255, 255, 255, 0.15) 0 8px 16px,rgba(255, 255, 255, 0.15) 0 16px 32px;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-34:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.1);
+  background-color: #0d9c6a;
+}
+
+
+.button-34:focus {
+  outline: none;
+  background-color: #0d9c6a;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.1);
 }
 
 
@@ -76,15 +152,14 @@
   display:flex;
 }
 .col {
+  padding-top: 15px;
   flex: 50%;
   padding-left: 125px;
   padding-right: 125px;
   text-align: center;
 }
 
-.button-container {
-  text-align: center;
-}
+
 
 .App-header {
   background-color: #282c34;

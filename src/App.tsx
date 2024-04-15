@@ -9,6 +9,8 @@ import Col from 'react-bootstrap/Col';
 
 import BasicQuiz from './BasicQuiz';
 import DetailQuiz from './DetailQuiz'
+
+
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -49,39 +51,46 @@ function App(): JSX.Element{
     setBasic(false);
   }
 
-
+  function handleClick(): void{
+    if(setDetail){
+      setDetail(false);
+    }
+    if(setBasic){
+      setBasic(false);
+    }
+  }
 
   return (
     <body>
 
     <div className="App">
         <div className="header-box">
-          <h1>The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
-          </h1>
+          <button className='home-button' onClick={handleClick}>
+              The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
+          </button>
+          <div className="nav-bar">
+          <Button className="button-33" onClick={handleClick}>Home</Button>
+          </div>
         </div>
         <div>
         <Container>
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
-                  The basic quiz will allow you to explore basic interests and aren't comprehensive if you aren't ready to confirm your career pathway.
-                  <div className="button-container">
-                    <Button className="button-33" style={{ marginTop: '80px' }} onClick={updateBasic}>
-                        Take our Basic Career Quiz
-                    </Button>
-                  </div>
+                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in!</p>             
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
-                    The detailed quiz is perfect if you are ready to explore heavier interests and be place in your forever job. It is more comprehensive so that your interests and skills are well gauged. 
-                    <div className="button-container">
-                      <Button className="button-33" style={{ marginTop: '80px' }} onClick={updateDetail}>
-                        Take our Detailed Career Quiz
-                      </Button>
-                    </div>
-                </Col>
+                    <p>The detailed career quiz consists of short response questions in order to gain a better understanding of your interets. We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>
+                </Col>         
             </Row>
         </Container>
+        <Button className="button-33" style={{ marginTop: '20px', marginRight:'210px'}} onClick={updateBasic} >
+                        Take our Basic Career Quiz
+        </Button>
+        <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={updateDetail}>
+                        Take our Detailed Career Quiz
+                      </Button>
         </div>
             <Row>
               <Col>
@@ -96,10 +105,12 @@ function App(): JSX.Element{
            
         <div className="footer">
         <Form>
-          <Form.Label>API Key:</Form.Label>
+          <Form.Label>API Key:  <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
-          <Button className="Submit" onClick={handleSubmit}>Submit</Button>
+          <div className='button-container'>
+          <Button className="button-34" onClick={handleSubmit}>Submit</Button>
+          </div>
         </Form>
       </div>
       </div>
