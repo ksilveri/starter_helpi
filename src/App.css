@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.body {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -52,16 +57,16 @@
   bottom: 0;
   width: 100%;
   background-color: #254117;
-  padding: 10px;
+  padding: 5px;
   color: whitesmoke;
   display: flex; 
   justify-content: center; 
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding-top: 10px;
+  height: 6vh;
 }
 
-.body{
-  overflow-y: auto;
-}
+
 .footer form {
   display: flex;
   align-items: center;

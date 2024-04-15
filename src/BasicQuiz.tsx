@@ -20,6 +20,8 @@ function BasicQuiz() {
             <h3> Basic Career Quiz</h3>
             <p>Testing future</p>
             <p>Hello</p>
+            <p>Testing Adding More Lines for Scrolling</p>
+            <p>another test line</p>
             <p>1. Make a new software?</p>
             <div>
                 {OPTIONS.map((opt: string) => (
