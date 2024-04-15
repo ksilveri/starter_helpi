@@ -57,6 +57,9 @@
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.body{
+  overflow-y: auto;
+}
 .footer form {
   display: flex;
   align-items: center;
