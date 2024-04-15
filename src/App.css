@@ -20,6 +20,8 @@
   padding: 40px;
   text-align: center;
   font-family: 'BellBottom.Laser', sans-serif;
+  min-height: 10vh;
+
 }
 
 .home-button {
