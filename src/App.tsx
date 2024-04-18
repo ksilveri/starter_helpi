@@ -72,6 +72,7 @@ function App(): JSX.Element{
           </h1>
         </div>
         <div>
+        <Form.Label className="custom-title">Take one of our comprehensive Career Quizzes powered by AI:</Form.Label>
         <Container>
             <Row className="row">
                 <Col className="col">
@@ -101,7 +102,6 @@ function App(): JSX.Element{
               </Col>
             </Row>
             <div className='quiz-content'>
-              <h2>Take one of our comprehensive Career Quizzes powered by AI:</h2>
               {basic && <BasicQuiz key={key} />}
               {detail && <DetailQuiz key={key} />}
             </div>
