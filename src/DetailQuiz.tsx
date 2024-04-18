@@ -5,6 +5,7 @@ import { Form } from 'react-bootstrap';
 
 
 function DetailQuiz() {
+    //states used for the textboxes
     const [first, setInitial] = useState<string>('');
     const [second, setSecond] = useState<string>('');
     const [third, setThird] =useState<string>('');
@@ -13,15 +14,13 @@ function DetailQuiz() {
     const [sixth, setSixth] =useState<string>('');
     const [seventh, setSeventh] =useState<string>('');
     
-    
+    //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
         setInitial(event.target.value)
     }
-
     function updateSecond(event: React.ChangeEvent<HTMLInputElement>) {
         setSecond(event.target.value)
     }
-
     function updateThird(event: React.ChangeEvent<HTMLInputElement>) {
         setThird(event.target.value)
     }
@@ -42,12 +41,10 @@ function DetailQuiz() {
         <div className ="detail-quiz">
             <h3> Detailed Career Quiz</h3>
             <Form.Group controlId="question1">
-                <Form.Label>Describe your ideal work environment.<Form.Label>
+                <Form.Label>Describe your ideal work environment.</Form.Label>
                 <Form.Control
                     value={first}
                     onChange={updateFirst}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="question2">
@@ -58,48 +55,38 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question3">
-                <Form.Label>How do you spend your time?<Form.Label>
+                <Form.Label>How do you spend your time?</Form.Label>
                 <Form.Control
                     value={third}
                     onChange={updateThird}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="question4">
-                <Form.Label>What has been your favorite class and why?<Form.Label>
+                <Form.Label>What has been your favorite class and why?</Form.Label>
                 <Form.Control
                     value={fourth}
                     onChange={updateFourth}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="question5">
-                <Form.Label>How would you define success?<Form.Label>
+                <Form.Label>How would you define success?</Form.Label>
                 <Form.Control
                     value={fifth}
                     onChange={updateFifth}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="question6">
-                <Form.Label>Do you enjoy interacting and/or working with other people?<Form.Label>
+                <Form.Label>Do you enjoy interacting and/or working with other people?</Form.Label>
                 <Form.Control
                     value={sixth}
                     onChange={updateSixth}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="question7">
-                <Form.Label>What do you think are your strengths?<Form.Label>
+                <Form.Label>What do you think are your strengths?</Form.Label>
                 <Form.Control
                     value={seventh}
                     onChange={updateSeventh}/>
-            </Form.Label>
-            </Form.Label>
             </Form.Group>
         </div>
     );
