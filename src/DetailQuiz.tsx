@@ -23,14 +23,14 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question2">
-                <Form.Label>Question two:</Form.Label>
+                <Form.Label>Describe your ideal job.</Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
             </Form.Group>
 
             <Form.Group controlId="question3">
-                <Form.Label>question 3<Form.Label>
+                <Form.Label>How do you spend your time?<Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
@@ -40,7 +40,7 @@ function DetailQuiz() {
 
 
             <Form.Group controlId="question4">
-                <Form.Label>question 4<Form.Label>
+                <Form.Label>What has been your favorite class and why?<Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
@@ -49,7 +49,7 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question5">
-                <Form.Label>question 5<Form.Label>
+                <Form.Label>How would you define success?<Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
@@ -58,7 +58,7 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question6">
-                <Form.Label>question 6<Form.Label>
+                <Form.Label>Do you enjoy interacting and/or working with other people?<Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
@@ -67,7 +67,7 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question7">
-                <Form.Label>question 7<Form.Label>
+                <Form.Label>What do you think are your strengths?<Form.Label>
                 <Form.Control
                     value={initial}
                     onChange={updateInitial}/>
