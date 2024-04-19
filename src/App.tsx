@@ -93,11 +93,6 @@ function App(): JSX.Element{
                         Take our Detailed Career Quiz
                       </Button>
         </div>
-            <Row>
-              <Col>
-              <img src="https://i.imgur.com/U4hAdwL.jpeg" alt="Divider" className='divider'/>
-              </Col>
-            </Row>
             <div className='quiz-content'>
               {basic && <BasicQuiz key={key} />}
               {detail && <DetailQuiz key={key} />}
