@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './quizzes.css';
-import { Form } from 'react-bootstrap';
+import './App.css';
+import { Button, Form } from 'react-bootstrap';
 
 
 
@@ -95,6 +96,9 @@ function DetailQuiz() {
                     className="custom-textbox"
                     value={seventh}
                     onChange={updateSeventh}/>
+
+           
+            <Button className="button-33">Click Here To See Your Results</Button>
             </Form.Group>
         </div>
     );
