@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import BasicQuiz from './BasicQuiz';
-import DetailQuiz from './DetailQuiz'
+import DetailQuiz from './DetailQuiz';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -25,6 +25,9 @@ function App(): JSX.Element{
   //const [home, setHome] = useState<boolean>(true);
   const [basic, setBasic] = useState<boolean>(false);
   const [detail, setDetail] = useState<boolean>(false);
+
+  //state for career report
+  const [response, setResponse] = useState<string>('');
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -60,6 +63,11 @@ function App(): JSX.Element{
     }
   }
 
+
+  //function to handle the career report response
+  function handleResponse(responseData: string) : void {
+    setResponse(responseData);
+  }
   return (
     <body>
 
@@ -95,9 +103,11 @@ function App(): JSX.Element{
         </div>
             <div className='quiz-content'>
               {basic && <BasicQuiz key={key} />}
-              {detail && <DetailQuiz key={key} />}
+              {detail && <DetailQuiz APIkey={key} handleResponse={handleResponse} />}
+              <div className='results'>
+            <p>{response}</p>
+           </div>
             </div>
-           
         <div className="footer">
         <Form>
           <Form.Label>API Key:  <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></Form.Label>
