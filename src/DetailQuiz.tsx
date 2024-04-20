@@ -95,7 +95,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             </Form.Group>
 
             <Form.Group controlId="question4">
-                <Form.Label className="custom-label">4. What has been your favorite class and why?</Form.Label>
+                <Form.Label className="custom-label">4. What has been your favorite subject to learn about and why?</Form.Label>
                 <Form.Control
                     className="custom-textbox"
                     value={fourth}
