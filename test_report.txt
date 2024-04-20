@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (84 ms)
+  ✕ renders learn react link (77 ms)
 
   ● renders learn react link
 
@@ -124,7 +124,13 @@ FAIL src/App.test.tsx
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"quiz-content"[39m
-            [36m/>[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"results"[39m
+              [36m>[39m
+                [36m<p />[39m
+              [36m</div>[39m
+            [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"footer"[39m
             [36m>[39m
@@ -184,17 +190,17 @@ FAIL src/App.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |   17.64 |    21.42 |    5.26 |   17.64 |                   
- App.tsx            |      40 |       30 |   16.66 |      40 | 19,31-59          
+All files           |   17.24 |    18.75 |    4.76 |   17.24 |                   
+ App.tsx            |    40.9 |       30 |   14.28 |    40.9 | 19,34-69          
  BasicQuiz.tsx      |      20 |      100 |       0 |      20 | 12-28             
- DetailQuiz.tsx     |       0 |      100 |       0 |       0 | 10-41             
+ DetailQuiz.tsx     |       0 |        0 |       0 |       0 | 13-69             
  index.tsx          |       0 |      100 |     100 |       0 | 9-21              
  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
 --------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.959 s
+Time:        2.972 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
