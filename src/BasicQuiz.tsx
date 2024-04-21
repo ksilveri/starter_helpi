@@ -1,5 +1,6 @@
 import React from 'react';
 import './quizzes.css';
+import { Form } from 'react-bootstrap';
 //import { Form } from 'react-bootstrap';
 
 
@@ -32,7 +33,9 @@ import './quizzes.css';
 
 function BasicQuiz() {
     return (
-        <div>
+        <div className ="basic-quiz">
+            <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
+            <p>Let's see which career environment interest you the most.</p>
       {createQuizQuestions(quizQuestions)}
     </div>
     );
