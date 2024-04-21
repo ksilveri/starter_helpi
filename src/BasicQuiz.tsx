@@ -1,6 +1,6 @@
 import React from 'react';
 import './quizzes.css';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 //import { Form } from 'react-bootstrap';
 
 
@@ -22,11 +22,11 @@ import { Form } from 'react-bootstrap';
       return questions.map((question, index) => (
         <div key={index}>
             
-          <div>{question}</div>
+          <div><Form.Label className="custom-label">{question}</Form.Label></div>
           <input type="radio" name={`question_${index}`} value="agree" /> Agree
           <input type="radio" name={`question_${index}`} value="Neither Agree nor Disagree" /> Neither Agree nor Disagree
           <input type="radio" name={`question_${index}`} value="disagree" /> Disagree
-          <br />
+          <p></p>
         </div>
       ));
     };
@@ -35,8 +35,10 @@ function BasicQuiz() {
     return (
         <div className ="basic-quiz">
             <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
-            <p>Let's see which career environment interest you the most.</p>
+            <p><Form.Label className="custom-label">Let's see which career environment interest you the most.</Form.Label></p>
       {createQuizQuestions(quizQuestions)}
+      
+      <Button className="button-33">Click Here To See Your Results</Button>
     </div>
     );
 }
