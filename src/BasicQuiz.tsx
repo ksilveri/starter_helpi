@@ -22,6 +22,7 @@ function BasicQuiz() {
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
     const [showResponses, setShowResponses] = useState(false);
     const [isValid, setIsValid] = useState(false);
+    const [careerReport, setCareerReport] = useState('');
     const [careerInsights, setCareerInsights] = useState<string>('');
 
     const handleResponseChange = (index: number, value: string): void => {
@@ -32,6 +33,9 @@ function BasicQuiz() {
   };
 
   const handleSubmit = async () => {
+    const report = generateCareerReport(responses);
+    setCareerReport(report);
+    setShowResponses(true);
     try {
         const response = await axios.post('OPENAI_API_ENDPOINT', { responses });
         const insights = response.data.insights; 
@@ -42,10 +46,11 @@ function BasicQuiz() {
       }
     };
 
-  //const generateCareerReport = (responses: string[]) => {
-  //  const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
-  //  return report;
-  //};
+    const generateCareerReport = (responses: string[]) => {
+        // Basic example of generating a report based on responses
+        const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
+        return report;
+      };
 
 
     return (
@@ -64,6 +69,8 @@ function BasicQuiz() {
                             <li key={index}>{`Question ${index + 1}: ${response}`}</li>
                         ))}
                     </ul>
+                    <h2>Career Report:</h2>
+                    <p>{careerReport}</p>
                     <h2>Career Insights:</h2>
                     <p>{careerInsights}</p>
                 </>
