@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './quizzes.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, } from 'react-bootstrap';
 //import { Form } from 'react-bootstrap';
 
-
+function BasicQuiz() {
 
     const quizQuestions = [
         "1. I enjoy working in a team environment rather than independently.",
@@ -17,31 +17,67 @@ import { Button, Form } from 'react-bootstrap';
         "9. I feel confident in my ability to adapt to new technologies and tools in the workplace.",
         "10. I enjoy networking and building professional relationships with others in my field."
     ];
-  
-    const createQuizQuestions = (questions: string[]) => {
-      return questions.map((question, index) => (
-        <div key={index}>
-            
-          <div><Form.Label className="custom-label">{question}</Form.Label></div>
-          <input type="radio" name={`question_${index}`} value="agree" /> Agree
-          <input type="radio" name={`question_${index}`} value="Neither Agree nor Disagree" /> Neither Agree nor Disagree
-          <input type="radio" name={`question_${index}`} value="disagree" /> Disagree
-          <p></p>
-        </div>
-      ));
-    };
 
-function BasicQuiz() {
+    const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
+    const [showResponses, setShowResponses] = useState(false);
+
+    const handleResponseChange = (index: number, value: string): void => {
+    const newResponses = [...responses];
+    newResponses[index] = value;
+    setResponses(newResponses);
+  };
+
+
     return (
         <div className ="basic-quiz">
             <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
             <p><Form.Label className="custom-label">Let's see which career environment interest you the most.</Form.Label></p>
-      {createQuizQuestions(quizQuestions)}
+      {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
       
-      <Button className="button-33">Click Here To See Your Results</Button>
+      <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
+      {showResponses && (
+        <>
+          <h2>Collected Responses:</h2>
+          <ul>
+            {responses.map((response, index) => (
+              <li key={index}>{`Question ${index + 1}: ${response}`}</li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
     );
 }
+
+const createQuizQuestions = (questions: string[], responses: string[], handleResponseChange: (index: number, value: string) => void) => {
+    return questions.map((question, index) => (
+      <div key={index}>
+        <div><Form.Label className="custom-label">{question}</Form.Label></div>
+        <input
+          type="radio"
+          name={`question_${index}`}
+          value="agree"
+          checked={responses[index] === 'agree'}
+          onChange={() => handleResponseChange(index, 'agree')}
+        /> Agree
+        <input
+          type="radio"
+          name={`question_${index}`}
+          value="Neither Agree nor Disagree"
+          checked={responses[index] === 'Neither Agree nor Disagree'}
+          onChange={() => handleResponseChange(index, 'Neither Agree nor Disagree')}
+        /> Neither Agree nor Disagree
+        <input
+          type="radio"
+          name={`question_${index}`}
+          value="disagree"
+          checked={responses[index] === 'disagree'}
+          onChange={() => handleResponseChange(index, 'disagree')}
+        /> Disagree
+        <p></p>
+      </div>
+    ));
+  };
 
 
 export default BasicQuiz;
