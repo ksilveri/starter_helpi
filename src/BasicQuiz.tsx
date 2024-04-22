@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
-import OpenAI from "openai";
 import axios from 'axios';
 
 
@@ -43,10 +42,10 @@ function BasicQuiz() {
       }
     };
 
-  const generateCareerReport = (responses: string[]) => {
-    const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
-    return report;
-  };
+  //const generateCareerReport = (responses: string[]) => {
+  //  const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
+  //  return report;
+  //};
 
 
     return (
