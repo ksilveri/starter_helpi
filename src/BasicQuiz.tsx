@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
-//import { Form } from 'react-bootstrap';
+import OpenAI from "openai";
+import axios from 'axios';
+
 
 function BasicQuiz() {
 
@@ -20,11 +22,30 @@ function BasicQuiz() {
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
     const [showResponses, setShowResponses] = useState(false);
+    const [isValid, setIsValid] = useState(false);
+    const [careerInsights, setCareerInsights] = useState<string>('');
 
     const handleResponseChange = (index: number, value: string): void => {
     const newResponses = [...responses];
     newResponses[index] = value;
     setResponses(newResponses);
+    setIsValid(newResponses.every(response => response !== ''));
+  };
+
+  const handleSubmit = async () => {
+    try {
+        const response = await axios.post('OPENAI_API_ENDPOINT', { responses });
+        const insights = response.data.insights; 
+        setCareerInsights(insights);
+        setShowResponses(true);
+      } catch (error) {
+        console.error('Error fetching career insights:', error);
+      }
+    };
+
+  const generateCareerReport = (responses: string[]) => {
+    const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
+    return report;
   };
 
 
@@ -32,20 +53,23 @@ function BasicQuiz() {
         <div className ="basic-quiz">
             <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
             <p><Form.Label className="custom-label">Let's see which career environment interest you the most.</Form.Label></p>
-      {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
+            {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
       
-      <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
-      {showResponses && (
-        <>
-          <h2>Collected Responses:</h2>
-          <ul>
-            {responses.map((response, index) => (
-              <li key={index}>{`Question ${index + 1}: ${response}`}</li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
+            <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
+            <button onClick={handleSubmit} disabled={!isValid}>Submit</button>
+            {showResponses && (
+                <>
+                    <h2>Collected Responses:</h2>
+                    <ul>
+                        {responses.map((response, index) => (
+                            <li key={index}>{`Question ${index + 1}: ${response}`}</li>
+                        ))}
+                    </ul>
+                    <h2>Career Insights:</h2>
+                    <p>{careerInsights}</p>
+                </>
+            )}
+        </div>
     );
 }
 
