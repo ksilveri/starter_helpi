@@ -3,7 +3,10 @@
     padding-top: 10px;
     padding-bottom: 100px;
 }
-
+.basic-wrapper {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 .detail-quiz {
     text-decoration: dotted;
 }
@@ -32,4 +35,15 @@
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: center;
+}
+
+.basic-buttons {
+    /*to do*/
+}
+
+.basic-quiz h1 {
+    font-family: 'BellBottom.Laser', sans-serif;
+    color:#254117;
+    padding: 20px;
+    font-size: 55px;
 }
