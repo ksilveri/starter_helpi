@@ -68,9 +68,9 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
-            <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
-            <p><Form.Label className="custom-label">Let's see which career environment interest you the most.</Form.Label></p>
-            {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
+            <h1>Basic Career Quiz</h1>
+            <p><strong>Let's see which career environment interest you the most.</strong></p>
+            <strong>{createQuizQuestions(quizQuestions, responses, handleResponseChange)}</strong>
       
             <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
             <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
