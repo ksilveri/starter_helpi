@@ -102,7 +102,7 @@ function App(): JSX.Element{
                       </Button>
         </div>
             <div className='quiz-content'>
-              {basic && <BasicQuiz key={key} />}
+              {basic && <BasicQuiz APIkey={key} handleResponse={handleResponse}/>}
               {detail && <DetailQuiz APIkey={key} handleResponse={handleResponse} />}
               <div className='results'>
             <p>{response}</p>

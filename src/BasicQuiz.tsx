@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
-import axios from 'axios';
+import OpenAI from 'openai';
 
 
-function BasicQuiz() {
+function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
 
     const quizQuestions = [
         "1. I enjoy working in a team environment rather than independently.",
@@ -23,7 +23,7 @@ function BasicQuiz() {
     const [showResponses, setShowResponses] = useState(false);
     const [isValid, setIsValid] = useState(false);
     const [careerReport, setCareerReport] = useState('');
-    const [careerInsights, setCareerInsights] = useState<string>('');
+    const [error, setError] = useState('');
 
     const handleResponseChange = (index: number, value: string): void => {
     const newResponses = [...responses];
@@ -33,26 +33,35 @@ function BasicQuiz() {
   };
 
   const handleSubmit = async () => {
-    const report = generateCareerReport(responses);
-    setCareerReport(report);
-    setShowResponses(true);
     try {
-        const response = await axios.post('OPENAI_API_ENDPOINT', { responses });
-        const insights = response.data.insights; 
-        setCareerInsights(insights);
-        setShowResponses(true);
+        const openai = new OpenAI({ apiKey: APIkey, dangerouslyAllowBrowser: true });
+        const response = await openai.chat.completions.create({
+          model: 'gpt-4-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report",
+            },
+            {
+              role: 'user',
+              content: responses,
+            },
+          ],
+          temperature: 1,
+          max_tokens: 1000,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+        });
+        const report = response.choices[0].message.content || '';
+        setCareerReport(report);
+        handleResponse(report);
+        setError('');
       } catch (error) {
         console.error('Error fetching career insights:', error);
+        setError('Error fetching career insights. Please try again later.');
       }
     };
-
-    const generateCareerReport = (responses: string[]) => {
-        // Basic example of generating a report based on responses
-        const report = `Based on your responses:\n1. You are satisfied with the service.\n2. You agree with the statement.\n3. You found the product helpful.\n\nYour recommended career path: Software Developer`;
-        return report;
-      };
-
-
     return (
         <div className ="basic-quiz">
             <Form.Label className="custom-header">Basic Career Quiz</Form.Label>
@@ -60,19 +69,24 @@ function BasicQuiz() {
             {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
       
             <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
-            <button onClick={handleSubmit} disabled={!isValid}>Submit</button>
+            <Button onClick={handleSubmit} disabled={!isValid}>Submit</Button>
+            {error && <p>{error}</p>}
             {showResponses && (
                 <>
                     <h2>Collected Responses:</h2>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <ul>
                         {responses.map((response, index) => (
-                            <li key={index}>{`Question ${index + 1}: ${response}`}</li>
+                            <li key={index} style={{ textAlign: 'left' }}>
+                                <strong>Question: </strong>{quizQuestions[index]}
+                                <br />
+                                <strong>Response: </strong> {response}
+                            </li>
                         ))}
                     </ul>
+                    </div>
                     <h2>Career Report:</h2>
                     <p>{careerReport}</p>
-                    <h2>Career Insights:</h2>
-                    <p>{careerInsights}</p>
                 </>
             )}
         </div>
