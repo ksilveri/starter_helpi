@@ -24,6 +24,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const [isValid, setIsValid] = useState(false);
     const [careerReport, setCareerReport] = useState('');
     const [error, setError] = useState('');
+    const [buttonClicked, setButtonClicked] = useState(false);
 
     const handleResponseChange = (index: number, value: string): void => {
     const newResponses = [...responses];
@@ -33,19 +34,23 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
   };
 
   const handleSubmit = async () => {
+     if (!buttonClicked) { // Check if button is not already clicked
+        setButtonClicked(true);}
     try {
         const openai = new OpenAI({ apiKey: APIkey, dangerouslyAllowBrowser: true });
+        const userAnswers = responses.map((response, index): string => quizQuestions[index] + ':' + response)
+        const userContent = userAnswers.join('\n');
         const response = await openai.chat.completions.create({
           model: 'gpt-4-turbo',
           messages: [
             {
-              role: 'system',
-              content: "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report",
+              "role": 'system',
+              "content": "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report",
             },
             {
-              role: 'user',
-              content: responses,
-            },
+              "role": 'user',
+              "content": userContent,
+            }
           ],
           temperature: 1,
           max_tokens: 1000,
@@ -55,7 +60,6 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         });
         const report = response.choices[0].message.content || '';
         setCareerReport(report);
-        handleResponse(report);
         setError('');
       } catch (error) {
         console.error('Error fetching career insights:', error);
@@ -69,8 +73,16 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             {createQuizQuestions(quizQuestions, responses, handleResponseChange)}
       
             <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
-            <Button onClick={handleSubmit} disabled={!isValid}>Submit</Button>
+            <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
             {error && <p>{error}</p>}
+
+            {careerReport && (
+        <>
+          <h2>Career Report</h2>
+          <p>{careerReport}</p>
+        </>
+      )}
+
             {showResponses && (
                 <>
                     <h2>Collected Responses:</h2>
@@ -85,8 +97,6 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                         ))}
                     </ul>
                     </div>
-                    <h2>Career Report:</h2>
-                    <p>{careerReport}</p>
                 </>
             )}
         </div>
