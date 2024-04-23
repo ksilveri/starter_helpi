@@ -83,8 +83,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
 
             {careerReport && (
         <>
-          <h2>Career Report</h2>
-          <p>{careerReport}</p>
+          <div dangerouslySetInnerHTML={{ __html: careerReport }} />
         </>
       )}
 
