@@ -1,11 +1,14 @@
+/* eslint-disable no-template-curly-in-string */
 import React, { useState } from 'react';
 import './quizzes.css';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import OpenAI from "openai";
 
 
 
-function DetailQuiz() {
+
+function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
     //states used for the textboxes
     const [first, setInitial] = useState<string>('');
     const [second, setSecond] = useState<string>('');
@@ -37,6 +40,31 @@ function DetailQuiz() {
     function updateSeventh(event: React.ChangeEvent<HTMLInputElement>) {
         setSeventh(event.target.value)
     }
+    //function for submitting answers
+    async function submitAnswers() {
+        const openai = new OpenAI({apiKey: APIkey, dangerouslyAllowBrowser: true });
+        const userAnswers = `"1. Describe your ideal work environment." : ${first} "2. Describe your ideal job." : ${second} "3. How do you spend your time?" : ${third} "4. What has been your favorite class and why?" : ${fourth} "5. How would you define success?" : ${fifth} "6. Do you enjoy interacting and/or working with other people?" : ${sixth} "7. What do you think are your strengths?" : ${seventh}`;
+        const response = await openai.chat.completions.create({
+            model: "gpt-4-turbo",
+            messages: [
+              {
+                "role": "system",
+                "content": "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report"
+              },
+              {
+                "role": "user",
+                "content": userAnswers
+              }
+            ],
+            temperature: 1,
+            max_tokens: 1000,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          });
+          const careerReport = response.choices[0].message.content || '';
+          handleResponse(careerReport);
+    }
 
     return (
         <div className ="detail-quiz">
@@ -67,7 +95,7 @@ function DetailQuiz() {
             </Form.Group>
 
             <Form.Group controlId="question4">
-                <Form.Label className="custom-label">4. What has been your favorite class and why?</Form.Label>
+                <Form.Label className="custom-label">4. What has been your favorite subject to learn about and why?</Form.Label>
                 <Form.Control
                     className="custom-textbox"
                     value={fourth}
@@ -98,7 +126,7 @@ function DetailQuiz() {
                     onChange={updateSeventh}/>
 
            
-            <Button className="button-33">Click Here To See Your Results</Button>
+            <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
             </Form.Group>
         </div>
     );
