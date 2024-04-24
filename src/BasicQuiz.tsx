@@ -3,9 +3,9 @@ import './quizzes.css';
 import { Button, Form, ProgressBar} from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
-//import { PropagateLoader } from 'react-spinners';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { PropagateLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -146,6 +146,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             
             {loading ? (
               <div className="spinner">
+                <PropagateLoader color={'#254117'} loading={loading} size={30} />
               </div>
             ) : (
               <>
