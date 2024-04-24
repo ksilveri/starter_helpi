@@ -13,6 +13,7 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.2",
     "gh-pages": "^6.1.1",
+    "markdown-to-jsx": "^7.4.7",
     "openai": "^4.38.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
