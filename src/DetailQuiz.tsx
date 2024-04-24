@@ -79,7 +79,6 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
           setIsSubmitted(true);
           setLoading(false);
     }
-    
 
     return (
         <div className ="detail-quiz">
