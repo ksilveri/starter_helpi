@@ -5,9 +5,9 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import OpenAI from "openai";
 import Markdown from 'markdown-to-jsx';
-//import { PropagateLoader } from 'react-spinners';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { PropagateLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ProgressBar from './progressBar';
 
@@ -35,6 +35,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const updateProgress = (percent: number) => {
         setProgress(percent);
     }
+
 
     const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>, progressAdd: number) => {
         setter(value);
@@ -161,6 +162,22 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             </Form.Group>
             <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
             
+            {loading ? (
+             <div className="spinner">
+               <PropagateLoader color={'#254117'} loading={loading} size={30} />
+             </div>
+           ) : (
+             <>
+             </>
+           )}
+           {loading && (
+             <div style={{ marginTop: '50px', textAlign: 'center' }}>
+               <strong>Hang tight! Your responses are being loaded.</strong>
+             </div>
+           )}
+
+
+           {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{report}</Markdown>
         </div>
     );
