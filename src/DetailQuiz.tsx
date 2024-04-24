@@ -5,9 +5,9 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import OpenAI from "openai";
 import Markdown from 'markdown-to-jsx';
-//import { PropagateLoader } from 'react-spinners';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { PropagateLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ProgressBar from './progressBar';
 
@@ -35,6 +35,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const updateProgress = (percent: number) => {
         setProgress(percent);
     }
+
 
     const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>, progressAdd: number) => {
         setter(value);

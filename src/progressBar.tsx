@@ -15,7 +15,7 @@ const ProgressBar: React.FC<{ progress: number }> = ({ progress }) => {
                 <div
                     style={{
                         width: `${progress}%`,
-                        backgroundColor: '#4caf50',
+                        backgroundColor: '#254117',
                         height: '100%',
                     }}
                 ></div>
