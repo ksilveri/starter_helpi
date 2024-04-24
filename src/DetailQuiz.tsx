@@ -9,6 +9,7 @@ import { PropagateLoader } from 'react-spinners';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
+import ProgressBar from './progressBar';
 
 
 
@@ -24,6 +25,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [report, setReport] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    
     
     //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
@@ -79,7 +82,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     return (
         <div className ="detail-quiz">
             <Form.Label className="custom-header">Detailed Career Quiz</Form.Label>
-            
+            <ProgressBar />
             <Form.Group controlId="question1">
                 <Form.Label className="custom-label">1. Describe your ideal work environment.</Form.Label>
                 <Form.Control
