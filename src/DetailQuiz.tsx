@@ -5,7 +5,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import OpenAI from "openai";
 import Markdown from 'markdown-to-jsx';
-
+import ProgressBar from './progressBar';
 
 
 
@@ -19,6 +19,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [sixth, setSixth] =useState<string>('');
     const [seventh, setSeventh] =useState<string>('');
     const [report, setReport] = useState('');
+
+    
     
     //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
@@ -71,7 +73,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     return (
         <div className ="detail-quiz">
             <Form.Label className="custom-header">Detailed Career Quiz</Form.Label>
-            
+            <ProgressBar />
             <Form.Group controlId="question1">
                 <Form.Label className="custom-label">1. Describe your ideal work environment.</Form.Label>
                 <Form.Control
