@@ -4,6 +4,7 @@ import './quizzes.css';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import OpenAI from "openai";
+import Markdown from 'markdown-to-jsx';
 
 
 
@@ -17,6 +18,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [fifth, setFifth] =useState<string>('');
     const [sixth, setSixth] =useState<string>('');
     const [seventh, setSeventh] =useState<string>('');
+    const [report, setReport] = useState('');
     
     //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
@@ -63,7 +65,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             presence_penalty: 0,
           });
           const careerReport = response.choices[0].message.content || '';
-          handleResponse(careerReport);
+          setReport(careerReport);
     }
 
     return (
@@ -124,10 +126,9 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     className="custom-textbox"
                     value={seventh}
                     onChange={updateSeventh}/>
-
-           
-            <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
             </Form.Group>
+            <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
+            <Markdown>{report}</Markdown>
         </div>
     );
 }
