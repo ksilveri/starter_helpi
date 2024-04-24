@@ -63,6 +63,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     function updateSeventh(event: React.ChangeEvent<HTMLInputElement>) {
         setSeventh(event.target.value)
     }
+
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);
@@ -159,7 +160,6 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     placeholder="Type response..."/>
             </Form.Group>
             <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
-
             {loading ? (
               <div className="spinner">
                 <PropagateLoader color={'#254117'} loading={loading} size={30} />
