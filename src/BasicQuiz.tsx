@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
 import OpenAI from 'openai';
+import Markdown from 'markdown-to-jsx';
+
 
 
 function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
@@ -16,7 +18,12 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         "7. I prefer a fast-paced work environment where tasks change frequently.",
         "8. I prioritize work-life balance over career advancement.",
         "9. I feel confident in my ability to adapt to new technologies and tools in the workplace.",
-        "10. I enjoy networking and building professional relationships with others in my field."
+        "10. I enjoy networking and building professional relationships with others in my field.",
+        "11. I enjoy thinking outside the box to develop new ideas and solutions.",
+        "12. I remain calm and focused under pressure, even in challenging situations.",
+        "13. I am skilled at communicating ideas effectively to a diverse audience.",
+        "14. I am interested in exploring entrepreneurship or starting my own business.",
+        "15. I excel at analyzing complex problems and developing innovative solutions."
     ];
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
@@ -68,7 +75,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
-            <h1>Basic Career Quiz</h1>
+            <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
             <p><strong>Let's see which career environment interest you the most.</strong></p>
             <strong>{createQuizQuestions(quizQuestions, responses, handleResponseChange)}</strong>
       
@@ -76,12 +83,9 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
             {error && <p>{error}</p>}
 
-            {careerReport && (
-        <>
-          <h2>Career Report</h2>
-          <p>{careerReport}</p>
-        </>
-      )}
+            
+            <Markdown>{careerReport}</Markdown>
+
 
             {showResponses && (
                 <>
@@ -105,8 +109,9 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
 
 const createQuizQuestions = (questions: string[], responses: string[], handleResponseChange: (index: number, value: string) => void) => {
     return questions.map((question, index) => (
-      <div key={index}>
+      <div key={index} className = "basic-wrapper">
         <div><Form.Label className="custom-label">{question}</Form.Label></div>
+        <div className='basic-buttons'>
         <input
           type="radio"
           name={`question_${index}`}
@@ -128,6 +133,7 @@ const createQuizQuestions = (questions: string[], responses: string[], handleRes
           checked={responses[index] === 'disagree'}
           onChange={() => handleResponseChange(index, 'disagree')}
         /> Disagree
+        </div>
         <p></p>
       </div>
     ));
