@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
 import OpenAI from 'openai';
+import Markdown from 'markdown-to-jsx';
+
 
 
 function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
@@ -81,11 +83,9 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
             {error && <p>{error}</p>}
 
-            {careerReport && (
-        <>
-          <div dangerouslySetInnerHTML={{ __html: careerReport }} />
-        </>
-      )}
+            
+            <Markdown>{careerReport}</Markdown>
+
 
             {showResponses && (
                 <>
