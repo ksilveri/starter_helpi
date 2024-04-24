@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import './quizzes.css';
 
 const ProgressBar: React.FC<{ progress: number }> = ({ progress }) => {
