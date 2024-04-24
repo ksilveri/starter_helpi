@@ -90,7 +90,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     className="custom-textbox"
                     value={first}
                     onChange={(e) => handleInputChange(e.target.value, setInitial, 10)}
-                    placeholder="Type something..."/>
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question2">
@@ -98,7 +98,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={second}
-                    onChange={updateSecond}/>
+                    onChange={(e) => handleInputChange(e.target.value, setSecond, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question3">
@@ -106,7 +107,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={third}
-                    onChange={updateThird}/>
+                    onChange={(e) => handleInputChange(e.target.value, setThird, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question4">
@@ -114,7 +116,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={fourth}
-                    onChange={updateFourth}/>
+                    onChange={(e) => handleInputChange(e.target.value, setFourth, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question5">
@@ -122,7 +125,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={fifth}
-                    onChange={updateFifth}/>
+                    onChange={(e) => handleInputChange(e.target.value, setFifth, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question6">
@@ -130,7 +134,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={sixth}
-                    onChange={updateSixth}/>
+                    onChange={(e) => handleInputChange(e.target.value, setSixth, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
 
             <Form.Group controlId="question7">
@@ -138,7 +143,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={seventh}
-                    onChange={updateSeventh}/>
+                    onChange={(e) => handleInputChange(e.target.value, setSeventh, 10)}
+                    placeholder="Type response..."/>
             </Form.Group>
             <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
             <Markdown>{report}</Markdown>
