@@ -5,6 +5,10 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import OpenAI from "openai";
 import Markdown from 'markdown-to-jsx';
+import { PropagateLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
 import ProgressBar from './progressBar';
 
 
@@ -19,6 +23,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [sixth, setSixth] =useState<string>('');
     const [seventh, setSeventh] =useState<string>('');
     const [report, setReport] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     
     
@@ -46,6 +52,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     }
     //function for submitting answers
     async function submitAnswers() {
+        setLoading(true);
         const openai = new OpenAI({apiKey: APIkey, dangerouslyAllowBrowser: true });
         const userAnswers = `"1. Describe your ideal work environment." : ${first} "2. Describe your ideal job." : ${second} "3. How do you spend your time?" : ${third} "4. What has been your favorite class and why?" : ${fourth} "5. How would you define success?" : ${fifth} "6. Do you enjoy interacting and/or working with other people?" : ${sixth} "7. What do you think are your strengths?" : ${seventh}`;
         const response = await openai.chat.completions.create({
@@ -68,6 +75,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
           });
           const careerReport = response.choices[0].message.content || '';
           setReport(careerReport);
+          setIsSubmitted(true);
+          setLoading(false);
     }
 
     return (
@@ -130,6 +139,23 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     onChange={updateSeventh}/>
             </Form.Group>
             <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
+
+            {loading ? (
+              <div className="spinner">
+                <PropagateLoader color={'#254117'} loading={loading} size={30} />
+              </div>
+            ) : (
+              <>
+              </>
+            )}
+            {loading && (
+              <div style={{ marginTop: '50px', textAlign: 'center' }}>
+                <strong>Hang tight! Your responses are being loaded.</strong>
+              </div>
+            )}
+
+            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
+
             <Markdown>{report}</Markdown>
         </div>
     );
