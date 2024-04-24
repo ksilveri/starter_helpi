@@ -3,6 +3,9 @@ import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
+import { PropagateLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -32,6 +35,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const [careerReport, setCareerReport] = useState('');
     const [error, setError] = useState('');
     const [buttonClicked, setButtonClicked] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleResponseChange = (index: number, value: string): void => {
     const newResponses = [...responses];
@@ -41,6 +46,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
      if (!buttonClicked) { // Check if button is not already clicked
         setButtonClicked(true);}
     try {
@@ -68,9 +74,13 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         const report = response.choices[0].message.content || '';
         setCareerReport(report);
         setError('');
+        setIsSubmitted(true);
       } catch (error) {
         console.error('Error fetching career insights:', error);
         setError('Error fetching career insights. Please try again later.');
+      }
+      finally {
+        setLoading(false);
       }
     };
     return (
@@ -82,8 +92,22 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
             <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
             {error && <p>{error}</p>}
-
             
+            {loading ? (
+              <div className="spinner">
+                <PropagateLoader color={'#254117'} loading={loading} size={30} />
+              </div>
+            ) : (
+              <>
+              </>
+            )}
+            {loading && (
+              <div style={{ marginTop: '50px', textAlign: 'center' }}>
+                <strong>Hang tight! Your responses are being loaded.</strong>
+              </div>
+            )}
+
+            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{careerReport}</Markdown>
 
 
