@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './quizzes.css';
-import { Button, Form, } from 'react-bootstrap';
+import { Button, Form, ProgressBar} from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
 //import { PropagateLoader } from 'react-spinners';
@@ -28,6 +28,18 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         "14. I am interested in exploring entrepreneurship or starting my own business.",
         "15. I excel at analyzing complex problems and developing innovative solutions."
     ];
+
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+    const progress = (currentQuestionIndex + 1 / quizQuestions.length) * 100;
+
+    const handleNextQuestion = () => {
+        setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+    };
+
+    const handlePreviousQuestion = () => {
+      setCurrentQuestionIndex(prevIndex => prevIndex - 1);
+  };
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
     const [showResponses, setShowResponses] = useState(false);
@@ -85,12 +97,51 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
+          <ProgressBar now={progress} label={`${progress}%`} />
             <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
             <p><strong>Let's see which career environment interest you the most.</strong></p>
-            <strong>{createQuizQuestions(quizQuestions, responses, handleResponseChange)}</strong>
-      
-            <Button className="button-33" onClick={() => setShowResponses(true)}>Click Here To See Your Responses.</Button>
-            <Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button>
+
+            
+            <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
+            <Form.Label className="custom-label">
+                    {quizQuestions[currentQuestionIndex]}
+            </Form.Label>
+            <p></p>
+                <div className='basic-buttons'>
+                  <strong><input
+                  type="radio"
+                  name={`question_${currentQuestionIndex}`}
+                  value="agree"
+                  checked={responses[currentQuestionIndex] === 'agree'}
+                  onChange={() => handleResponseChange(currentQuestionIndex, 'agree')}
+                  /> Agree
+                  <input
+                    type="radio"
+                    name={`question_${currentQuestionIndex}`}
+                    value="Neither Agree nor Disagree"
+                    checked={responses[currentQuestionIndex] === 'Neither Agree nor Disagree'}
+                    onChange={() => handleResponseChange(currentQuestionIndex, 'Neither Agree nor Disagree')}
+                  /> Neither Agree nor Disagree
+                  <input
+                    type="radio"
+                    name={`question_${currentQuestionIndex}`}
+                    value="disagree"
+                    checked={responses[currentQuestionIndex] === 'disagree'}
+                    onChange={() => handleResponseChange(currentQuestionIndex, 'disagree')}
+                  /> Disagree</strong>
+                  </div>
+                  <p></p>
+            </Form.Group>
+            {currentQuestionIndex > 0 && (
+                <Button className="button-33" onClick={handlePreviousQuestion}>Previous</Button>
+            )}
+
+            {currentQuestionIndex < quizQuestions.length - 1 ? (
+                <Button className="button-33" onClick={handleNextQuestion}>Next</Button>
+            ) : (
+              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+            )}
+
             {error && <p>{error}</p>}
             
             {loading ? (
@@ -122,38 +173,5 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         </div>
     );
 }
-
-const createQuizQuestions = (questions: string[], responses: string[], handleResponseChange: (index: number, value: string) => void) => {
-    return questions.map((question, index) => (
-      <div key={index} className = "basic-wrapper">
-        <div><Form.Label className="custom-label">{question}</Form.Label></div>
-        <div className='basic-buttons'>
-        <input
-          type="radio"
-          name={`question_${index}`}
-          value="agree"
-          checked={responses[index] === 'agree'}
-          onChange={() => handleResponseChange(index, 'agree')}
-        /> Agree
-        <input
-          type="radio"
-          name={`question_${index}`}
-          value="Neither Agree nor Disagree"
-          checked={responses[index] === 'Neither Agree nor Disagree'}
-          onChange={() => handleResponseChange(index, 'Neither Agree nor Disagree')}
-        /> Neither Agree nor Disagree
-        <input
-          type="radio"
-          name={`question_${index}`}
-          value="disagree"
-          checked={responses[index] === 'disagree'}
-          onChange={() => handleResponseChange(index, 'disagree')}
-        /> Disagree
-        </div>
-        <p></p>
-      </div>
-    ));
-  };
-
 
 export default BasicQuiz;
