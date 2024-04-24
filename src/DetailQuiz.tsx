@@ -41,7 +41,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
         setter(value);
         updateProgress(progress+progressAdd);
     }
-
+/*
     //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
         setInitial(event.target.value)
@@ -64,7 +64,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     function updateSeventh(event: React.ChangeEvent<HTMLInputElement>) {
         setSeventh(event.target.value)
     }
-
+*/
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);
