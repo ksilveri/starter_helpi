@@ -3,9 +3,9 @@ import './quizzes.css';
 import { Button, Form, } from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
-import { PropagateLoader } from 'react-spinners';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+//import { PropagateLoader } from 'react-spinners';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -95,19 +95,11 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             
             {loading ? (
               <div className="spinner">
-                <PropagateLoader color={'#254117'} loading={loading} size={30} />
               </div>
             ) : (
               <>
               </>
             )}
-            {loading && (
-              <div style={{ marginTop: '50px', textAlign: 'center' }}>
-                <strong>Hang tight! Your responses are being loaded.</strong>
-              </div>
-            )}
-
-            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{careerReport}</Markdown>
 
 
