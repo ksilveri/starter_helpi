@@ -163,7 +163,3 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 }
 
 export default DetailQuiz;
-
-function setError(arg0: string) {
-    throw new Error('Function not implemented.');
-}
