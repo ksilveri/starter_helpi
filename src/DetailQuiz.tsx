@@ -9,7 +9,7 @@ import { PropagateLoader } from 'react-spinners';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-import {ProgressBar} from './progressBar';
+import ProgressBar from './progressBar';
 
 
 
@@ -27,7 +27,21 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
+   
+    
+    //progress bar
+    const [progress, setProgress] = useState<number>(0)
 
+    const updateProgress = (percent: number) => {
+        setProgress(percent);
+    }
+
+
+    const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>, progressAdd: number) => {
+        setter(value);
+        updateProgress(progress+progressAdd);
+    }
+/*
     //functions used to update the textboxes
     function updateFirst(event: React.ChangeEvent<HTMLInputElement>) {
         setInitial(event.target.value)
@@ -50,7 +64,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     function updateSeventh(event: React.ChangeEvent<HTMLInputElement>) {
         setSeventh(event.target.value)
     }
-
+*/
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);
@@ -83,13 +97,13 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     return (
         <div className ="detail-quiz">
             <Form.Label className="custom-header">Detailed Career Quiz</Form.Label>
-            <ProgressBar />
+            <ProgressBar progress={progress}/>
             <Form.Group controlId="question1">
                 <Form.Label className="custom-label">1. Describe your ideal work environment.</Form.Label>
                 <Form.Control
                     className="custom-textbox"
                     value={first}
-                    onChange={updateFirst}
+                    onChange={(e) => handleInputChange(e.target.value, setInitial, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -98,7 +112,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={second}
-                    onChange={updateSecond}
+                    onChange={(e) => handleInputChange(e.target.value, setSecond, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -107,7 +121,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={third}
-                    onChange={updateThird}
+                    onChange={(e) => handleInputChange(e.target.value, setThird, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -116,7 +130,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={fourth}
-                    onChange={updateFourth}
+                    onChange={(e) => handleInputChange(e.target.value, setFourth, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -125,7 +139,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={fifth}
-                    onChange={updateFifth}
+                    onChange={(e) => handleInputChange(e.target.value, setFifth, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -134,7 +148,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={sixth}
-                    onChange={updateSixth}
+                    onChange={(e) => handleInputChange(e.target.value, setSixth, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
 
@@ -143,7 +157,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                 <Form.Control
                     className="custom-textbox"
                     value={seventh}
-                    onChange={updateSeventh}
+                    onChange={(e) => handleInputChange(e.target.value, setSeventh, 10)}
                     placeholder="Type response..."/>
             </Form.Group>
             <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
