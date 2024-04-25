@@ -56,13 +56,13 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const percent = (answeredQuestions / detailQuestions.length) * 100;
     setProgress(percent);
     }
-
-    const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>, progressAdd: number) => {
+    
+    
+    const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>,progressAdd: number) => {
         setter(value);
         updateProgress();
     }
     
-
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);

@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 import BasicQuiz from './BasicQuiz';
 import DetailQuiz from './DetailQuiz';
+import FeedbackQuiz from './FeedbackQuiz';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -25,6 +26,7 @@ function App(): JSX.Element{
   //const [home, setHome] = useState<boolean>(true);
   const [basic, setBasic] = useState<boolean>(false);
   const [detail, setDetail] = useState<boolean>(false);
+  const [feedback, setFeedback] = useState<boolean>(false);
 
   //state for career report
   const [response, setResponse] = useState<string>('');
@@ -46,12 +48,21 @@ function App(): JSX.Element{
 
   function updateBasic():void{
     setBasic(true);
+    setFeedback(false);
     setDetail(false);
   }
 
   function updateDetail():void{
     setDetail(true);
+    setFeedback(false);
     setBasic(false);
+  }
+
+  function updateFeedback():void{
+    setFeedback(true);
+    setBasic(false);
+    setDetail(false);
+    
   }
 
   function handleClick(): void{
@@ -60,6 +71,9 @@ function App(): JSX.Element{
     }
     if(setBasic){
       setBasic(false);
+    }
+    if(setFeedback){
+      setFeedback(false);
     }
   }
 
@@ -100,10 +114,17 @@ function App(): JSX.Element{
         <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={updateDetail}>
                         Take our Detailed Career Quiz
                       </Button>
+                      <br></br>
+                      <br></br>
+                      <br></br>
+                      <h4>After you complete the quizzes please fill out a Feedback Survey</h4>
+                      <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={updateFeedback} >
+                        Feedback Survey</Button>
         </div>
             <div className='quiz-content'>
               {basic && <BasicQuiz APIkey={key} handleResponse={handleResponse}/>}
               {detail && <DetailQuiz APIkey={key} handleResponse={handleResponse} />}
+              {feedback && <FeedbackQuiz/>}
               <div className='results'>
             <p>{response}</p>
            </div>
