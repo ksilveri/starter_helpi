@@ -74,7 +74,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
           messages: [
             {
               "role": 'system',
-              "content": "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report",
+              "content": "You are a career guidance specialist with extensive experience in analyzing career quiz results and providing tailored recommendations. Your goal is to help the user discover their ideal career path based on their unique preferences and strengths."
             },
             {
               "role": 'user',
@@ -136,11 +136,11 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                   <p></p>
             </Form.Group>
             {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion}>Previous</Button>
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
             )}
 
             {currentQuestionIndex < quizQuestions.length - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion}>Next</Button>
+                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
             ) : (
               <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
@@ -148,7 +148,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             {error && <p>{error}</p>}
             
             {loading ? (
-              <div className="spinner">
+              <div className="spinner" style={{paddingTop: '25px'}}>
                 <PropagateLoader color={'#254117'} loading={loading} size={30} />
               </div>
             ) : (

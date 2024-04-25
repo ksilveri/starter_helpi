@@ -42,6 +42,22 @@
     /*to do*/
 }
 
+.basic-progress-bar .progress-bar {
+    background-color:#254117;
+    color: white;
+    height: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+.basic-progress-container {
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 15px;
+}
+
+
 .basic-quiz h1 {
     font-family: 'BellBottom.Laser', sans-serif;
     color:#254117;
