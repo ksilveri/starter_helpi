@@ -58,7 +58,6 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
         updateProgress(currentQuestionIndex);
     };
     
-
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);
