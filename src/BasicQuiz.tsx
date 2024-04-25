@@ -97,7 +97,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         setIsSubmitted(true);
       } catch (error) {
         console.error(error);
-        setError('Error fetching career insights. Please try again later.');
+        setError('Error fetching career insights.  Please enter your API key and try again.');
       }
       finally {
         setLoading(false);
