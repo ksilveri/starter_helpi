@@ -1,5 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import './quizzes.css';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
@@ -26,41 +26,37 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     ]
 
     //states used for the textboxes and progress
-    const [first, setInitial] = useState<string>('');
-    const [second, setSecond] = useState<string>('');
-    const [third, setThird] =useState<string>('');
-    const [fourth, setFourth] =useState<string>('');
-    const [fifth, setFifth] =useState<string>('');
-    const [sixth, setSixth] =useState<string>('');
-    const [seventh, setSeventh] =useState<string>('');
+    const [responses, setResponses] = useState(Array(7).fill(''));
+    const [isValid, setIsValid] = useState(false);
     const [report, setReport] = useState('');
-
+    const [showResponses, setShowResponses] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
-   
-    
-    //progress bar
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [progress, setProgress] = useState<number>(0)
 
-    function updateProgress(){
-        let answeredQuestions = 0;
-    if (first.trim() !== '') answeredQuestions++;
-    if (second.trim() !== '') answeredQuestions++;
-    if (third.trim() !== '') answeredQuestions++;
-    if (fourth.trim() !== '') answeredQuestions++;
-    if (fifth.trim() !== '') answeredQuestions++;
-    if (sixth.trim() !== '') answeredQuestions++;
-    if (seventh.trim() !== '') answeredQuestions++;
+    const updateProgress = (index: number) => {
+        setProgress(((index + 1)/7) * 100)
+      }
 
-    const percent = (answeredQuestions / detailQuestions.length) * 100;
-    setProgress(percent);
-    }
+    const formattedProgress = progress.toFixed(0);
 
-    const handleInputChange = (value: string, setter: React.Dispatch<React.SetStateAction<string>>, progressAdd: number) => {
-        setter(value);
-        updateProgress();
-    }
+    const handleNextQuestion = () => {
+        setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+    };
+
+    const handlePreviousQuestion = () => {
+        setCurrentQuestionIndex(prevIndex => prevIndex - 1);
+    };
+
+    const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        const newResponses = [...responses];
+        newResponses[currentQuestionIndex] = event.target.value;
+        setResponses(newResponses);
+        setIsValid(newResponses.every(response => response !== ''));
+        updateProgress(currentQuestionIndex);
+    };
     
 
     //function for submitting answers
@@ -68,7 +64,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
         setLoading(true);
         try {
         const openai = new OpenAI({apiKey: APIkey, dangerouslyAllowBrowser: true });
-        const userAnswers = `"1. Describe your ideal work environment." : ${first} "2. Describe your ideal job." : ${second} "3. How do you spend your time?" : ${third} "4. What has been your favorite class and why?" : ${fourth} "5. How would you define success?" : ${fifth} "6. Do you enjoy interacting and/or working with other people?" : ${sixth} "7. What do you think are your strengths?" : ${seventh}`;
+        const userAnswers = responses.map((response, index): string => detailQuestions[index] + ':' + response);
+        const userContent = userAnswers.join('\n');
         const response = await openai.chat.completions.create({
             model: "gpt-4-turbo",
             messages: [
@@ -78,7 +75,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
               },
               {
                 "role": "user",
-                "content": userAnswers
+                "content": userContent
               }
             ],
             temperature: 1,
@@ -103,69 +100,27 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             <Form.Label className="custom-header">Detailed Career Quiz</Form.Label>
             
             <ProgressBar progress={progress}/>
-            <Form.Group controlId="question1">
-                <Form.Label className="custom-label">1. Describe your ideal work environment.</Form.Label>
+            <div className="progress-bar-label">{`${formattedProgress}%`}</div>
+
+            <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
+                <Form.Label className="custom-label">{detailQuestions[currentQuestionIndex]}
+                </Form.Label>
                 <Form.Control
                     className="custom-textbox"
-                    value={first}
-                    onChange={(e) => handleInputChange(e.target.value, setInitial, 10)}
+                    value={responses[currentQuestionIndex]}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange(e)}
                     placeholder="Type response..."/>
             </Form.Group>
 
-            <Form.Group controlId="question2">
-                <Form.Label className="custom-label">2. Describe your ideal job.</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={second}
-                    onChange={(e) => handleInputChange(e.target.value, setSecond, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
+            {currentQuestionIndex > 0 && (
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
+            )}
 
-            <Form.Group controlId="question3">
-                <Form.Label className="custom-label">3. How do you spend your time?</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={third}
-                    onChange={(e) => handleInputChange(e.target.value, setThird, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
-
-            <Form.Group controlId="question4">
-                <Form.Label className="custom-label">4. What has been your favorite subject to learn about and why?</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={fourth}
-                    onChange={(e) => handleInputChange(e.target.value, setFourth, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
-
-            <Form.Group controlId="question5">
-                <Form.Label className="custom-label">5. How would you define success?</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={fifth}
-                    onChange={(e) => handleInputChange(e.target.value, setFifth, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
-
-            <Form.Group controlId="question6">
-                <Form.Label className="custom-label">6. Do you enjoy interacting and/or working with other people?</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={sixth}
-                    onChange={(e) => handleInputChange(e.target.value, setSixth, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
-
-            <Form.Group controlId="question7">
-                <Form.Label className="custom-label">7. What do you think are your strengths?</Form.Label>
-                <Form.Control
-                    className="custom-textbox"
-                    value={seventh}
-                    onChange={(e) => handleInputChange(e.target.value, setSeventh, 10)}
-                    placeholder="Type response..."/>
-            </Form.Group>
-            <Button className="button-33" onClick={submitAnswers}>Click Here To See Your Results</Button>
+            {currentQuestionIndex < 7 - 1 ? (
+                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
+            ) : (
+              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+            )}
             
 
             {loading ? (
@@ -185,6 +140,23 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{report}</Markdown>
+
+            {showResponses && (
+                <>
+                    <h2>Collected Responses:</h2>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <ul>
+                        {responses.map((response, index) => (
+                            <li key={index} style={{ textAlign: 'left' }}>
+                                <strong>Question: </strong>{detailQuestions[index]}
+                                <br />
+                                <strong>Response: </strong> {response}
+                            </li>
+                        ))}
+                    </ul>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
