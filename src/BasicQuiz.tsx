@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './quizzes.css';
-import { Button, Form, ProgressBar} from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
 import { PropagateLoader } from 'react-spinners';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import ProgressBar from './progressBar';
 
 
 
@@ -30,8 +31,10 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     ];
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-    const progress = (currentQuestionIndex + 1 / quizQuestions.length) * 100;
+    const [progress, setProgress] = useState<number>(0)
+    const updateProgress = (index: number) => {
+      setProgress(((index + 1)/quizQuestions.length) * 100)
+    }
 
     const handleNextQuestion = () => {
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
@@ -55,6 +58,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     newResponses[index] = value;
     setResponses(newResponses);
     setIsValid(newResponses.every(response => response !== ''));
+    updateProgress(currentQuestionIndex);
   };
 
   const handleSubmit = async () => {
@@ -70,7 +74,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
           messages: [
             {
               "role": 'system',
-              "content": "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report",
+              "content": "You are a career guidance specialist with extensive experience in analyzing career quiz results and providing tailored recommendations. Your goal is to help the user discover their ideal career path based on their unique preferences and strengths."
             },
             {
               "role": 'user',
@@ -97,10 +101,9 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
-          <ProgressBar now={progress} label={`${progress}%`} />
             <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+            <ProgressBar progress={progress}/>
             <p><strong>Let's see which career environment interest you the most.</strong></p>
-
             
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
             <Form.Label className="custom-label">
@@ -133,19 +136,19 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                   <p></p>
             </Form.Group>
             {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion}>Previous</Button>
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
             )}
 
             {currentQuestionIndex < quizQuestions.length - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion}>Next</Button>
+                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
 
             {error && <p>{error}</p>}
             
             {loading ? (
-              <div className="spinner">
+              <div className="spinner" style={{paddingTop: '25px'}}>
                 <PropagateLoader color={'#254117'} loading={loading} size={30} />
               </div>
             ) : (
