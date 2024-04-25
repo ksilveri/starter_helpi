@@ -32,6 +32,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     const [showResponses, setShowResponses] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [progress, setProgress] = useState<number>(0)
@@ -121,6 +122,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
               <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
             
+            {error && <p>{error}</p>}
 
             {loading ? (
              <div className="spinner">
@@ -161,7 +163,3 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 }
 
 export default DetailQuiz;
-
-function setError(arg0: string) {
-    throw new Error('Function not implemented.');
-}
