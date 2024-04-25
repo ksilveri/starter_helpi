@@ -68,6 +68,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
     //function for submitting answers
     async function submitAnswers() {
         setLoading(true);
+        try {
         const openai = new OpenAI({apiKey: APIkey, dangerouslyAllowBrowser: true });
         const userAnswers = `"1. Describe your ideal work environment." : ${first} "2. Describe your ideal job." : ${second} "3. How do you spend your time?" : ${third} "4. What has been your favorite class and why?" : ${fourth} "5. How would you define success?" : ${fifth} "6. Do you enjoy interacting and/or working with other people?" : ${sixth} "7. What do you think are your strengths?" : ${seventh}`;
         const response = await openai.chat.completions.create({
@@ -75,7 +76,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             messages: [
               {
                 "role": "system",
-                "content": "You are a career guidance specialist who will draw in depth results from this user's career quiz results and craft them a detailed career report"
+                "content": "You are a career guidance specialist with extensive experience in analyzing career quiz results and providing tailored recommendations. Your goal is to help the user discover their ideal career path based on their unique preferences and strengths."
               },
               {
                 "role": "user",
@@ -92,6 +93,11 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
           setReport(careerReport);
           setIsSubmitted(true);
           setLoading(false);
+          setError('');
+        } catch (error){
+            console.error('Error fetching career insights:', error);
+        setError('Error fetching career insights. Please try again later.');
+        }
     }
 
     return (
@@ -184,3 +190,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 }
 
 export default DetailQuiz;
+
+function setError(arg0: string) {
+    throw new Error('Function not implemented.');
+}
