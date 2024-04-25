@@ -5,7 +5,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:23:33)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:24:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (70 ms)
+  ✕ renders learn react link (113 ms)
 
   ● renders learn react link
 
@@ -121,6 +121,19 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [0mTake our Detailed Career Quiz[0m
               [36m</button>[39m
+              [36m<br />[39m
+              [36m<br />[39m
+              [36m<br />[39m
+              [36m<h4>[39m
+                [0mAfter you complete the quizzes please fill out a Feedback Survey[0m
+              [36m</h4>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"button-33 btn btn-primary"[39m
+                [33mstyle[39m=[32m"margin-top: 20px; margin-right: 4px;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mFeedback Survey[0m
+              [36m</button>[39m
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"quiz-content"[39m
@@ -187,24 +200,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |    6.99 |     5.55 |    2.43 |    7.57 |                   
- App.tsx               |    40.9 |       30 |   14.28 |    40.9 | 19,34-69          
- BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-168            
- DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-195            
- RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30             
- TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9               
- index.tsx             |       0 |      100 |     100 |       0 | 9-21              
- progressBar.tsx       |      50 |      100 |       0 |      50 | 5                 
- reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.234 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -217,3 +212,22 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    7.22 |     6.45 |    2.12 |    7.74 |                   
+ App.tsx               |   33.33 |    28.57 |    12.5 |   33.33 | 20,36-83          
+ BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-168            
+ DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-195            
+ FeedbackQuiz.tsx      |    6.66 |        0 |       0 |    6.66 | 15-76             
+ RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30             
+ TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9               
+ index.tsx             |       0 |      100 |     100 |       0 | 9-21              
+ progressBar.tsx       |      50 |      100 |       0 |      50 | 5                 
+ reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
+-----------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.534 s
+Ran all test suites.
