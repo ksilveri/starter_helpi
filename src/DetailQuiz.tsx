@@ -90,8 +90,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
           setLoading(false);
           setError('');
         } catch (error){
-            console.error('Error fetching career insights:', error);
-        setError('Error fetching career insights. Please try again later.');
+            console.error(error);
+            setError('Error fetching career insights. Please enter your API key and try again.');
         }
     }
 
