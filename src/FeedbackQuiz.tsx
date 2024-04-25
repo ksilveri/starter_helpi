@@ -91,22 +91,3 @@ const FeedbackQuiz: React.FC = () => {
 };
 
 export default FeedbackQuiz;
-
-
-
-
-
-
-/*
-function FeedbackQuiz() => void {
-
-    const [question, setQuestion] = useState<string>("");
-
-    function update 
-    return (
-        <Form.Check
-            type="radio"
-            name=
-    )
-}
-*/
