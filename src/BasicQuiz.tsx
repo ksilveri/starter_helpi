@@ -44,6 +44,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const handlePreviousQuestion = () => {
       setCurrentQuestionIndex(prevIndex => prevIndex - 1);
   };
+  
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
     const [showResponses, setShowResponses] = useState(false);
@@ -95,7 +96,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         setError('');
         setIsSubmitted(true);
       } catch (error) {
-        console.error('Error fetching career insights:', error);
+        console.error(error);
         setError('Error fetching career insights. Please try again later.');
       }
       finally {
