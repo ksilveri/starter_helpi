@@ -26,12 +26,12 @@ const FeedbackQuiz: React.FC = () => {
       id: 1,
       text: '1. Did you find the questions easy to understand?',
       
-      options: ['Yes', 'Unsure', 'No']
+      options: ['Yes',  'No']
     },
     {
       id: 2,
       text: '2. Did you encounter technical issues with the quiz?',
-      options: ['Yes', 'Unsure', 'No']
+      options: ['Yes', 'No']
     },
     
     {
@@ -42,7 +42,7 @@ const FeedbackQuiz: React.FC = () => {
       {
         id: 4,
         text: '4. Would you recommend this quiz to others?',
-        options: ['Yes', 'Unsure', 'No']
+        options: ['Yes', 'No']
       },
   ];
 
