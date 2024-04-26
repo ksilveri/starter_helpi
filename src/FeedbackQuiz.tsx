@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './quizzes.css';
 import './App.css';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -14,8 +15,9 @@ interface Question {
 const FeedbackQuiz: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
-  
+  //const [isSubmitted, setIsSubmitted] = useState(false);
 
+ 
   const questions: Question[] = [
     {
       id: 1,
@@ -49,6 +51,11 @@ const FeedbackQuiz: React.FC = () => {
     }
   };
 
+
+const handlePreviousQuestion = () => {
+  setCurrentQuestionIndex(prevIndex => prevIndex - 1);
+};
+
   
 
   const handleOptionSelect = (option: string) => {
@@ -79,7 +86,11 @@ const FeedbackQuiz: React.FC = () => {
               </div>
             ))}
           </div>
-          <button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={handleNextQuestion}>Next</button>
+          {currentQuestionIndex > 0 && (
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
+            )}
+          <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={handleNextQuestion}>Next</Button>
+          <Button className="button-33" style={{marginTop: '20px', marginRight: '4px'}} >Submit</Button>
         </div>
       ) : (
         <div>
