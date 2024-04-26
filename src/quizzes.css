@@ -100,3 +100,25 @@
     background-color: #254117;
     transition: width 0.5s ease-out;
 }
+
+.question-text {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.question-choice {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.feedback-survey h1 {
+    font-family: 'BellBottom.Laser', sans-serif;
+    color:#254117;
+    padding: 20px;
+    font-size: 55px;
+}
