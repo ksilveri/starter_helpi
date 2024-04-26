@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (95 ms)
+  ✕ renders learn react link (98 ms)
 
   ● renders learn react link
 
@@ -200,25 +200,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |    7.59 |     7.14 |    2.08 |       8 |                   
- App.tsx               |   33.33 |    28.57 |    12.5 |   33.33 | 20,36-83          
- BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-175            
- DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-151            
- FeedbackQuiz.tsx      |    6.66 |        0 |       0 |    6.66 | 15-76             
- RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30             
- TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9               
- index.tsx             |       0 |      100 |     100 |       0 | 9-21              
- progressBar.tsx       |      50 |      100 |       0 |      50 | 5                 
- reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.25 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -231,3 +212,22 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    7.45 |     6.89 |       2 |    7.89 |                   
+ App.tsx               |   33.33 |    28.57 |    12.5 |   33.33 | 20,36-83          
+ BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-175            
+ DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-151            
+ FeedbackQuiz.tsx      |    5.55 |        0 |       0 |    5.88 | 16-83             
+ RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30             
+ TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9               
+ index.tsx             |       0 |      100 |     100 |       0 | 9-21              
+ progressBar.tsx       |      50 |      100 |       0 |      50 | 5                 
+ reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
+-----------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.358 s
+Ran all test suites.
