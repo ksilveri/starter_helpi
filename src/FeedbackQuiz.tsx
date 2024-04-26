@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './quizzes.css';
 import './App.css';
 import { Button } from 'react-bootstrap';
-
-
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface Question {
   id: number;
@@ -15,7 +15,7 @@ interface Question {
 const FeedbackQuiz: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
-  //const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const totalQuestions = 4;
  
   const questions: Question[] = [
@@ -56,7 +56,9 @@ const handlePreviousQuestion = () => {
   setCurrentQuestionIndex(prevIndex => prevIndex - 1);
 };
 
-  
+ const handleSubmitQuestion = () => {
+  setIsSubmitted(true);
+ } 
 
   const handleOptionSelect = (option: string) => {
     const updatedAnswers = [...answers];
@@ -93,13 +95,13 @@ const handlePreviousQuestion = () => {
           <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
           
           {currentQuestionIndex === totalQuestions -1 && (
-            <Button className="button-33" style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
+            <Button className="button-33" onClick={handleSubmitQuestion} style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
           )}
 
+{isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Thank you for your feedback!!!</p></>}
         </div>
       ) : (
         <div>
-          <p>Thank you for your feedback!</p>
         </div>
       )}
     </div>
