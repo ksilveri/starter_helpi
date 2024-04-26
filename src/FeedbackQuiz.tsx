@@ -18,26 +18,30 @@ const FeedbackQuiz: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const totalQuestions = 4;
  
+
+
   const questions: Question[] = [
     {
+  
       id: 1,
-      text: 'Did you find the questions easy to understand?',
+      text: '1. Did you find the questions easy to understand?',
+      
       options: ['Yes', 'Unsure', 'No']
     },
     {
       id: 2,
-      text: 'Did you encounter technical issues with the quiz',
+      text: '2. Did you encounter technical issues with the quiz?',
       options: ['Yes', 'Unsure', 'No']
     },
     
     {
         id: 3,
-        text: 'Did you find the quiz questions relevant to your career interests and goals?',
+        text: '3. Did you find the quiz questions relevant to your career interests and goals?',
         options: ['Agree', 'Neither Agree or Disagree', 'Disagree']
       },
       {
         id: 4,
-        text: 'Would you recommend this quiz to others?',
+        text: '4. Would you recommend this quiz to others?',
         options: ['Yes', 'Unsure', 'No']
       },
   ];
@@ -67,15 +71,15 @@ const handlePreviousQuestion = () => {
   };
 
   return (
-    <div>
-      <h1>Feedback Quiz</h1>
+    <div className="feedback-survey">
+      <h1>Feedback Survey <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
       {currentQuestionIndex < questions.length ? (
-        <div>
-          <h2>Question {currentQuestionIndex + 1}</h2>
+        <div className="question-text">
+          
           <p>{questions[currentQuestionIndex].text}</p>
           <div>
             {questions[currentQuestionIndex].options.map((option, index) => (
-              <div key={index}>
+              <div className="question-choice" key={index}>
                 <input
                   type="radio"
                   id={`option${index}`}
