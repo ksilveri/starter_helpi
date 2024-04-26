@@ -16,7 +16,7 @@ const FeedbackQuiz: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   //const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const totalQuestions = 4;
  
   const questions: Question[] = [
     {
@@ -87,10 +87,15 @@ const handlePreviousQuestion = () => {
             ))}
           </div>
           {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
             )}
-          <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={handleNextQuestion}>Next</Button>
-          <Button className="button-33" style={{marginTop: '20px', marginRight: '4px'}} >Submit</Button>
+
+          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
+          
+          {currentQuestionIndex === totalQuestions -1 && (
+            <Button className="button-33" style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
+          )}
+
         </div>
       ) : (
         <div>
