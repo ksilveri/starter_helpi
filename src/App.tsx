@@ -100,7 +100,7 @@ function App(): JSX.Element{
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
-                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in!</p>             
+                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in! We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>             
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
