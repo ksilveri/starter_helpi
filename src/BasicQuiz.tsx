@@ -32,6 +32,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [progress, setProgress] = useState<number>(0)
+
     const updateProgress = (index: number) => {
       setProgress(((index + 1)/quizQuestions.length) * 100)
     }
@@ -43,6 +44,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const handlePreviousQuestion = () => {
       setCurrentQuestionIndex(prevIndex => prevIndex - 1);
   };
+  
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
     const [showResponses, setShowResponses] = useState(false);
@@ -60,6 +62,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     setIsValid(newResponses.every(response => response !== ''));
     updateProgress(currentQuestionIndex);
   };
+
+  const formattedProgress = progress.toFixed(0);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -92,8 +96,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
         setError('');
         setIsSubmitted(true);
       } catch (error) {
-        console.error('Error fetching career insights:', error);
-        setError('Error fetching career insights. Please try again later.');
+        console.error(error);
+        setError('Error fetching career insights.  Please enter your API key and try again.');
       }
       finally {
         setLoading(false);
@@ -102,11 +106,14 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     return (
         <div className ="basic-quiz">
             <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+
             <ProgressBar progress={progress}/>
+            <div className="progress-bar-label">{`${formattedProgress}%`}</div>
+
             <p><strong>Let's see which career environment interest you the most.</strong></p>
-            
+
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
-            <Form.Label className="custom-label">
+              <Form.Label className="custom-label">
                     {quizQuestions[currentQuestionIndex]}
             </Form.Label>
             <p></p>
