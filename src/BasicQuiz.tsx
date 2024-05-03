@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './quizzes.css';
-import { Button, Form} from 'react-bootstrap';
+import { Button, Form,} from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
 import { PropagateLoader } from 'react-spinners';
