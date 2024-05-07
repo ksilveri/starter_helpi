@@ -26,6 +26,14 @@ function App(): JSX.Element{
   const [view, setView] = useState<'home' | 'basic' | 'detail' | 'feedback'>('home');
 
 
+  //need to hide the descriptions/quiz titles/quiz buttons & feedback survey 
+  const [basicTitle, setBasicTitle] = useState<string>("Basic Career Quiz");
+
+
+
+
+
+
   //state for career report
   const [response, setResponse] = useState<string>('');
 
@@ -47,6 +55,7 @@ function App(): JSX.Element{
   const handleViewChange = (newView: 'home' | 'basic' | 'detail' | 'feedback') => {
     setView(newView);
   };
+
 
 
   //function to handle the career report response
@@ -72,7 +81,11 @@ function App(): JSX.Element{
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
+
+                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in! We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>             
+
                   <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in!  We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>             
+
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
