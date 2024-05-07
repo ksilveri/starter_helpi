@@ -105,6 +105,14 @@
     font-weight: bold;
     font-size: 20px;
     font-family: sans-serif;
+    text-align: center;
+    border: 5px solid;
+    position: absolute;
+    top: 65%;
+    right: 33%;
+    transform: translate(0, -50%);
+    padding: 10px;
+    
 }
 
 .question-choice {
@@ -121,4 +129,13 @@
     color:#254117;
     padding: 20px;
     font-size: 55px;
+    text-align: center;
+    border: 5px solid;
+    position: absolute;
+    top: 40%;
+    right: 38%;
+    transform: translate(0, -50%);
+    padding: 10px;
+    
 }
+
