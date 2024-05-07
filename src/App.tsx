@@ -2,10 +2,7 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Button, Form, NavLink} from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 
 import BasicQuiz from './BasicQuiz';
 import DetailQuiz from './DetailQuiz';
