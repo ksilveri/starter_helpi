@@ -6,7 +6,7 @@
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
         at Home (/home/runner/work/starter_helpi/starter_helpi/src/Home.tsx:28:16)
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:17:41)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:18:41)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -38,7 +38,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (85 ms)
+  ✕ renders learn react link (84 ms)
 
   ● renders learn react link
 
@@ -54,25 +54,33 @@ FAIL src/App.test.tsx
             [36m<ul[39m
               [33mclass[39m=[32m"links"[39m
             [36m>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"links"[39m
-              [36m>[39m
+              [36m<li>[39m
                 [0mHome[0m
+                [36m<link[39m
+                  [33mhref[39m=[32m"https://fonts.googleapis.com/css?family=Press%20Start%202P"[39m
+                  [33mrel[39m=[32m"stylesheet"[39m
+                [36m/>[39m
               [36m</li>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"links"[39m
-              [36m>[39m
+              [36m<li>[39m
                 [0mBasic Career Quiz[0m
+                [36m<link[39m
+                  [33mhref[39m=[32m"https://fonts.googleapis.com/css?family=Press%20Start%202P"[39m
+                  [33mrel[39m=[32m"stylesheet"[39m
+                [36m/>[39m
               [36m</li>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"links"[39m
-              [36m>[39m
+              [36m<li>[39m
                 [0mDetail Career Quiz[0m
+                [36m<link[39m
+                  [33mhref[39m=[32m"https://fonts.googleapis.com/css?family=Press%20Start%202P"[39m
+                  [33mrel[39m=[32m"stylesheet"[39m
+                [36m/>[39m
               [36m</li>[39m
-              [36m<li[39m
-                [33mclass[39m=[32m"links"[39m
-              [36m>[39m
+              [36m<li>[39m
                 [0mFeedback Survey[0m
+                [36m<link[39m
+                  [33mhref[39m=[32m"https://fonts.googleapis.com/css?family=Press%20Start%202P"[39m
+                  [33mrel[39m=[32m"stylesheet"[39m
+                [36m/>[39m
               [36m</li>[39m
             [36m</ul>[39m
           [36m</nav>[39m
@@ -247,8 +255,8 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-----------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
 -----------------------|---------|----------|---------|---------|-----------------------
-All files              |    7.22 |    14.86 |    3.17 |    7.69 |                       
- App.tsx               |   22.22 |     62.5 |    12.5 |   22.22 | 27-42                 
+All files              |    7.34 |    14.86 |    3.22 |    7.83 |                       
+ App.tsx               |   33.33 |     62.5 |   14.28 |   33.33 | 29-32                 
  BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-187                
  DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-163                
  FeedbackQuiz.tsx      |    4.54 |        0 |       0 |    4.76 | 16-89                 
@@ -262,5 +270,5 @@ All files              |    7.22 |    14.86 |    3.17 |    7.69 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.713 s
+Time:        3.49 s
 Ran all test suites.
