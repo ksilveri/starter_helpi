@@ -36,10 +36,13 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [progress, setProgress] = useState<number>(0)
+    const [answeredQuestions, setAnsweredQuestions] = useState<boolean[]>(Array(detailQuestions.length).fill(false));
 
-    const updateProgress = (index: number) => {
-        setProgress(((index + 1)/7) * 100)
-      }
+    const updateProgress = () => {
+      const answeredQuestionsCount = responses.filter(response => response !== '').length;
+      const progress = ((answeredQuestionsCount + 1) / detailQuestions.length) * 100;
+      setProgress(progress);
+    };
 
     const formattedProgress = progress.toFixed(0);
 
@@ -56,7 +59,12 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
         newResponses[currentQuestionIndex] = event.target.value;
         setResponses(newResponses);
         setIsValid(newResponses.every(response => response !== ''));
-        updateProgress(currentQuestionIndex);
+        if (!answeredQuestions[currentQuestionIndex] && event.target.value !== '') {
+          updateProgress();
+          const newAnsweredQuestions = [...answeredQuestions];
+          newAnsweredQuestions[currentQuestionIndex] = true;
+          setAnsweredQuestions(newAnsweredQuestions);
+        }
     };
     
     //function for submitting answers
