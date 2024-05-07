@@ -5,7 +5,8 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:24:33)
+        at Home (/home/runner/work/starter_helpi/starter_helpi/src/Home.tsx:28:16)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:18:41)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -37,7 +38,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (105 ms)
+  ✕ renders learn react link (80 ms)
 
   ● renders learn react link
 
@@ -46,6 +47,36 @@ FAIL src/App.test.tsx
     Ignored nodes: comments, script, style
     [36m<body>[39m
       [36m<div>[39m
+        [36m<div>[39m
+          [36m<nav[39m
+            [33mclass[39m=[32m"navBar"[39m
+          [36m>[39m
+            [36m<ul[39m
+              [33mclass[39m=[32m"links"[39m
+            [36m>[39m
+              [36m<li[39m
+                [33mclass[39m=[32m"links"[39m
+              [36m>[39m
+                [0mHome[0m
+              [36m</li>[39m
+              [36m<li[39m
+                [33mclass[39m=[32m"links"[39m
+              [36m>[39m
+                [0mBasic Career Quiz[0m
+              [36m</li>[39m
+              [36m<li[39m
+                [33mclass[39m=[32m"links"[39m
+              [36m>[39m
+                [0mDetail Career Quiz[0m
+              [36m</li>[39m
+              [36m<li[39m
+                [33mclass[39m=[32m"links"[39m
+              [36m>[39m
+                [0mFeedback Survey[0m
+              [36m</li>[39m
+            [36m</ul>[39m
+          [36m</nav>[39m
+        [36m</div>[39m
         [36m<body>[39m
           [36m<div[39m
             [33mclass[39m=[32m"App"[39m
@@ -112,6 +143,7 @@ FAIL src/App.test.tsx
                 [33mstyle[39m=[32m"margin-top: 20px; margin-right: 210px;"[39m
                 [33mtype[39m=[32m"button"[39m
               [36m>[39m
+                [0m [0m
                 [0mTake our Basic Career Quiz[0m
               [36m</button>[39m
               [36m<button[39m
@@ -215,11 +247,12 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-----------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
 -----------------------|---------|----------|---------|---------|-----------------------
-All files              |    6.43 |     9.09 |    1.81 |    6.87 |                       
- App.tsx               |      45 |       60 |      10 |      45 | 20,46-52,60-68,75-110 
+All files              |    7.22 |    14.86 |    3.17 |    7.69 |                       
+ App.tsx               |   22.22 |     62.5 |    12.5 |   22.22 | 28-43                 
  BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-183                
  DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-159                
  FeedbackQuiz.tsx      |    4.54 |        0 |       0 |    4.76 | 16-89                 
+ Home.tsx              |      45 |       60 |      10 |      45 | 25,46-52,57-66,72-107 
  RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30                 
  TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9                   
  index.tsx             |       0 |      100 |     100 |       0 | 9-21                  
@@ -229,5 +262,5 @@ All files              |    6.43 |     9.09 |    1.81 |    6.87 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.288 s
+Time:        4.295 s
 Ran all test suites.
