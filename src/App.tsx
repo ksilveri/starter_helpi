@@ -28,6 +28,14 @@ function App(): JSX.Element{
   const [detail, setDetail] = useState<boolean>(false);
   const [feedback, setFeedback] = useState<boolean>(false);
 
+  //need to hide the descriptions/quiz titles/quiz buttons & feedback survey 
+  const [basicTitle, setBasicTitle] = useState<string>("Basic Career Quiz");
+
+
+
+
+
+
   //state for career report
   const [response, setResponse] = useState<string>('');
 
@@ -76,6 +84,7 @@ function App(): JSX.Element{
       setFeedback(false);
     }
   }
+
 
 
   //function to handle the career report response
