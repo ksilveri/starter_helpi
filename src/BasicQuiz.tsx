@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './quizzes.css';
-import { Button, Form} from 'react-bootstrap';
+import { Button, Form,} from 'react-bootstrap';
 import OpenAI from 'openai';
 import Markdown from 'markdown-to-jsx';
 import { PropagateLoader } from 'react-spinners';
@@ -32,10 +32,13 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [progress, setProgress] = useState<number>(0)
+    const [answeredQuestions, setAnsweredQuestions] = useState<boolean[]>(Array(quizQuestions.length).fill(false));
 
-    const updateProgress = (index: number) => {
-      setProgress(((index + 1)/quizQuestions.length) * 100)
-    }
+    const updateProgress = () => {
+      const answeredQuestionsCount = responses.filter(response => response !== '').length;
+      const progress = ((answeredQuestionsCount + 1) / quizQuestions.length) * 100;
+      setProgress(progress);
+    };
 
     const handleNextQuestion = () => {
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
@@ -60,7 +63,12 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     newResponses[index] = value;
     setResponses(newResponses);
     setIsValid(newResponses.every(response => response !== ''));
-    updateProgress(currentQuestionIndex);
+    if (!answeredQuestions[index] && value !== '') {
+      updateProgress();
+      const newAnsweredQuestions = [...answeredQuestions];
+      newAnsweredQuestions[index] = true;
+      setAnsweredQuestions(newAnsweredQuestions);
+    }
   };
 
   const formattedProgress = progress.toFixed(0);

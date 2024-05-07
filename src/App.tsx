@@ -23,10 +23,8 @@ if (prevKey !== null) {
 function App(): JSX.Element{
   const [key, setKey] = useState<string>(keyData); //for api key input
 
-  //const [home, setHome] = useState<boolean>(true);
-  const [basic, setBasic] = useState<boolean>(false);
-  const [detail, setDetail] = useState<boolean>(false);
-  const [feedback, setFeedback] = useState<boolean>(false);
+  const [view, setView] = useState<'home' | 'basic' | 'detail' | 'feedback'>('home');
+
 
   //need to hide the descriptions/quiz titles/quiz buttons & feedback survey 
   const [basicTitle, setBasicTitle] = useState<string>("Basic Career Quiz");
@@ -54,36 +52,9 @@ function App(): JSX.Element{
     //setHome(!home);
   //}
 
-  function updateBasic():void{
-    setBasic(true);
-    setFeedback(false);
-    setDetail(false);
-  }
-
-  function updateDetail():void{
-    setDetail(true);
-    setFeedback(false);
-    setBasic(false);
-  }
-
-  function updateFeedback():void{
-    setFeedback(true);
-    setBasic(false);
-    setDetail(false);
-    
-  }
-
-  function handleClick(): void{
-    if(setDetail){
-      setDetail(false);
-    }
-    if(setBasic){
-      setBasic(false);
-    }
-    if(setFeedback){
-      setFeedback(false);
-    }
-  }
+  const handleViewChange = (newView: 'home' | 'basic' | 'detail' | 'feedback') => {
+    setView(newView);
+  };
 
 
 
@@ -96,20 +67,25 @@ function App(): JSX.Element{
 
     <div className="App">
         <div className="header-box">
-          <button className='home-button' onClick={handleClick}>
+          <button className='home-button' onClick={() => handleViewChange('home')}>
               The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </button>
           <div className="nav-bar">
-          <Button className="button-33" onClick={handleClick}>Home</Button>
+          <Button className="button-33" onClick={() => handleViewChange('home')}>Home</Button>
           </div>
         </div>
+        {view === 'home' && (
         <div>
         <Form.Label className="custom-title">Take one of our comprehensive Career Quizzes powered by AI:</Form.Label>
         <Container>
             <Row className="row">
                 <Col className="col">
                   <h3> Basic Questions </h3>
+
                   <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in! We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>             
+
+                  <p>The basic career quiz consists of multiple choice questions to see your interests. At the conclusion of the quiz it will give you a broad result of what field you may be interested in!  We use our AICareerChat software to analyze your responses so we can provide you with specific career choises that may interest you!</p>             
+
                 </Col>
                 <Col className="col">
                     <h3> Detailed Questions </h3>
@@ -117,23 +93,24 @@ function App(): JSX.Element{
                 </Col>         
             </Row>
         </Container>
-        <Button className="button-33" style={{ marginTop: '20px', marginRight:'210px'}} onClick={updateBasic} >
+        <Button className="button-33" style={{ marginTop: '20px', marginRight:'210px'}} onClick={() => handleViewChange('basic')} >
                         Take our Basic Career Quiz
         </Button>
-        <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={updateDetail}>
+        <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={() => handleViewChange('detail')}>
                         Take our Detailed Career Quiz
                       </Button>
                       <br></br>
                       <br></br>
                       <br></br>
                       <h4>After you complete the quizzes please fill out a Feedback Survey</h4>
-                      <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={updateFeedback} >
+                      <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={() => handleViewChange('feedback')} >
                         Feedback Survey</Button>
         </div>
+        )}
             <div className='quiz-content'>
-              {basic && <BasicQuiz APIkey={key} handleResponse={handleResponse}/>}
-              {detail && <DetailQuiz APIkey={key} handleResponse={handleResponse} />}
-              {feedback && <FeedbackQuiz/>}
+              {view === 'basic' && <BasicQuiz APIkey={key} handleResponse={handleResponse}/>}
+              {view === 'detail' && <DetailQuiz APIkey={key} handleResponse={handleResponse} />}
+              {view === 'feedback' && <FeedbackQuiz/>}
               <div className='results'>
             <p>{response}</p>
            </div>
