@@ -105,6 +105,7 @@
     font-weight: bold;
     font-size: 20px;
     font-family: sans-serif;
+    text-align: center;  
 }
 
 .question-choice {
@@ -121,7 +122,9 @@
     color:#254117;
     padding: 20px;
     font-size: 55px;
+    text-align: center;  
 }
+
 
 .detail-quiz h1 {
     font-family: 'BellBottom.Laser', sans-serif;
@@ -159,3 +162,4 @@
 .content-box h1, .content-box p {
     color: #333;
 }
+
