@@ -113,7 +113,11 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
-            <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+          <video autoPlay loop muted className='background-video'>
+            <source src = "https://storage.googleapis.com/pathfinder_video/Gen-2%2016s%2C%202600711658%2C%20M%205%20(1).mp4" type = "video/mp4"/>
+          </video>
+          <div className = "content-box">
+            <h1 style={{color: 'black'}}>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
 
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
@@ -190,6 +194,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                     </div>
                 </>
             )}
+         </div>
+
         </div>
     );
 }

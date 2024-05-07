@@ -105,7 +105,11 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
     return (
         <div className ="detail-quiz">
-             <h1>Detailed Career Quiz<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+          <video autoPlay loop muted className='background-video'>
+            <source src="https://storage.googleapis.com/detailed_questions_bucket/Gen-2%2016s%2C%202600711658%2C%20M%205.mp4" type="video/mp4"/>
+          </video>
+          <div className="content-box">
+             <h1 style={{color: 'black'}}>Detailed Career Quiz<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
             
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
@@ -166,6 +170,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     </div>
                 </>
             )}
+        </div>
         </div>
     );
 }
