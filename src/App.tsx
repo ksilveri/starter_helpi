@@ -23,15 +23,19 @@ if (prevKey !== null) {
 function App(): JSX.Element{
   const [key, setKey] = useState<string>(keyData); //for api key input
 
-  const [view, setView] = useState<'home' | 'basic' | 'detail' | 'feedback'>('home');
-
+  //const [home, setHome] = useState<boolean>(true);
+  /*const [basic, setBasic] = useState<boolean>(false);
+  const [detail, setDetail] = useState<boolean>(false);
+  const [feedback, setFeedback] = useState<boolean>(false);
 
   //need to hide the descriptions/quiz titles/quiz buttons & feedback survey 
   const [basicTitle, setBasicTitle] = useState<string>("Basic Career Quiz");
 
+*/
 
 
 
+  const [view, setView] = useState<'home' | 'basic' | 'detail' | 'feedback'>('home');
 
 
   //state for career report
@@ -55,6 +59,7 @@ function App(): JSX.Element{
   const handleViewChange = (newView: 'home' | 'basic' | 'detail' | 'feedback') => {
     setView(newView);
   };
+
 
 
 
