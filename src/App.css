@@ -207,3 +207,30 @@
 body{
   background-color: #EEEEE0;
 }
+
+.links {
+  display: inline;
+  margin-right: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  color:#EEEEE0;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  transition: color 0.3s ease;
+}
+
+.links li:hover {
+  color:#0d9c6a;
+}
+
+.links.active {
+  color:#0d9c6a;
+}
+
+.navBar {
+  background-color:#254117;
+  padding: 20px;
+}
+
+
+
+

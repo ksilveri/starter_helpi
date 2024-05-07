@@ -105,7 +105,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
     return (
         <div className ="detail-quiz">
-            <Form.Label className="custom-header">Detailed Career Quiz</Form.Label>
+             <h1>Detailed Career Quiz<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
             
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
