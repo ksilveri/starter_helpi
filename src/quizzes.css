@@ -150,7 +150,7 @@
     padding-left: 50px;
     padding-right: 50px; 
     padding-bottom: 50px;
-    max-width: 800px; 
+    max-width: 700px; 
     background-color: #a8a87f;
     align-items: center;
     align-self: center;
@@ -170,7 +170,7 @@
     background-image: url("https://i.imgur.com/aSurr7W.png");
     background-attachment: fixed;
     background-position: center bottom; 
-    background-size: 700px 500px; 
+    background-size: 700px 650px; 
     background-repeat: no-repeat; 
     color: #1c3929;
     padding: 10px 20px;
@@ -215,7 +215,8 @@
 .button-nav {
     margin-top: 15px; 
     margin-right: 10px; 
-    margin-left: 10px; 
+    margin-left: 10px;
+    padding:10px;
   }
   
   .button-container {
@@ -223,4 +224,5 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    padding:20px;
   }

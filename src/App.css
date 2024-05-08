@@ -302,7 +302,8 @@ body{
 
 .intro-container h2 {
   font-family: 'Press Start 2P';
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 26px;
   color:#254117;
   text-shadow: -0.5px -0.5px 0#ffffff,  
   0.5px -0.5px 0 #ffffff ,
@@ -312,7 +313,7 @@ body{
 
 .quiz-container h3 {
   font-family: 'Press Start 2P';
-  font-size: 20px;
+  font-size: 24px;
   color:#254117;
   text-shadow: -0.5px -0.5px 0#ffffff,  
   0.5px -0.5px 0 #ffffff ,
@@ -326,8 +327,5 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   font-weight: bolder;
   color:#000000;
-  text-shadow: -0.5px -0.5px 0#ffffff,  
-  0.5px -0.5px 0 #ffffff ,
- -0.5px 0.5px 0 #ffffff,
-  0.5px 0.5px 0 #ffffff ; 
+  
 }
