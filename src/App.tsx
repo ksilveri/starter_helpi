@@ -39,6 +39,7 @@ const [pageView, setPageView] = useState("Home");
       {pageView === "BasicQuiz" && <BasicQuiz APIkey={''} handleResponse={() => {}} />}
       {pageView === "DetailQuiz" && <DetailQuiz APIkey={''} handleResponse={() => {}} />}
       {pageView === "FeedbackQuiz" && <FeedbackQuiz />}
+      
     </React.Fragment>
     
   );

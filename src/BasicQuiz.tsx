@@ -119,7 +119,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             <source src = "https://storage.googleapis.com/pathfinder_video/Gen-2%2012s%2C%203620141223%2C%20M%206.mp4" type = "video/mp4"/>
           </video>
           <div className = "content-box">
-            <h1 style={{color: 'black'}}>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+            <div className='basic-title'>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></div>
 
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
@@ -129,39 +129,31 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                     {quizQuestions[currentQuestionIndex]}
             </Form.Label>
 
-                <div className='basic-buttons'>
-                  <strong><input
-                  type="radio"
-                  name={`question_${currentQuestionIndex}`}
-                  value="agree"
-                  checked={responses[currentQuestionIndex] === 'agree'}
-                  onChange={() => handleResponseChange(currentQuestionIndex, 'agree')}
-                  /> Agree         
-                  <input
-                    type="radio"
-                    name={`question_${currentQuestionIndex}`}
-                    value="Neither Agree nor Disagree"
-                    checked={responses[currentQuestionIndex] === 'Neither Agree nor Disagree'}
-                    onChange={() => handleResponseChange(currentQuestionIndex, 'Neither Agree nor Disagree')}
-                  /> Neither Agree nor Disagree
-                  <input
-                    type="radio"
-                    name={`question_${currentQuestionIndex}`}
-                    value="disagree"
-                    checked={responses[currentQuestionIndex] === 'disagree'}
-                    onChange={() => handleResponseChange(currentQuestionIndex, 'disagree')}
-                  /> Disagree</strong>
-                  </div>
+            <div className='basic-buttons'>
+              {['Strongly Agree', 'Agree', 'Neither Agree nor Disagree', 'Disagree', 'Strongly Disagree'].map((option, index) => (
+              <label key={index} className="custom-radio-button">
+              <input
+                type="radio"
+                name={`question_${currentQuestionIndex}`}
+                value={option}
+                checked={responses[currentQuestionIndex] === option}
+                onChange={() => handleResponseChange(currentQuestionIndex, option)}
+                />
+            <span>{option}</span>
+            </label>
+        ))}
+          </div>
                   <p></p>
             </Form.Group>
-            {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '20px'}}>Previous</Button>
-            )}
+
 
             {currentQuestionIndex < quizQuestions.length - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
+                <Button className="button-33 button-nav" onClick={handleNextQuestion} style={{marginLeft: '10px', marginTop: '15px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33 button-nav" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33 button-nav" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+            )}
+            {currentQuestionIndex > 0 && (
+                <Button className="button-33 button-nav"  onClick={handlePreviousQuestion} style={{marginRight: '20px', marginTop: '15px'}}>Previous</Button>
             )}
 
             {error && <p>{error}</p>}
