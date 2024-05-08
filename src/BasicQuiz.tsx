@@ -155,7 +155,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                   <p></p>
             </Form.Group>
             {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '20px'}}>Previous</Button>
             )}
 
             {currentQuestionIndex < quizQuestions.length - 1 ? (
