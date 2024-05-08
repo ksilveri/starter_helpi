@@ -276,7 +276,7 @@ body{
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Adjust width as necessary */
+  width: 80%; 
 }
 
 .quiz-container, .feedback-container {
@@ -285,7 +285,7 @@ body{
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  width: 60%; /* Adjust width as necessary */
+  width: 60%; 
 }
 
 .button-33 {
