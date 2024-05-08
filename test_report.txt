@@ -38,7 +38,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (84 ms)
+  ✕ renders learn react link (92 ms)
 
   ● renders learn react link
 
@@ -103,14 +103,7 @@ FAIL src/App.test.tsx
               [36m</button>[39m
               [36m<div[39m
                 [33mclass[39m=[32m"nav-bar"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"button-33 btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mHome[0m
-                [36m</button>[39m
-              [36m</div>[39m
+              [36m/>[39m
             [36m</div>[39m
             [36m<div>[39m
               [36m<label[39m
@@ -255,12 +248,12 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-----------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
 -----------------------|---------|----------|---------|---------|-----------------------
-All files              |    7.34 |    14.86 |    3.22 |    7.83 |                       
+All files              |    7.38 |    14.86 |    3.27 |    7.87 |                       
  App.tsx               |   33.33 |     62.5 |   14.28 |   33.33 | 29-32                 
  BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-187                
  DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-163                
  FeedbackQuiz.tsx      |    4.54 |        0 |       0 |    4.76 | 16-89                 
- Home.tsx              |      45 |       60 |      10 |      45 | 25,46-52,57-66,72-107 
+ Home.tsx              |   47.36 |       60 |   11.11 |   47.36 | 25,46-52,57-66,72-106 
  RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30                 
  TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9                   
  index.tsx             |       0 |      100 |     100 |       0 | 9-21                  
@@ -270,5 +263,5 @@ All files              |    7.34 |    14.86 |    3.22 |    7.83 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.49 s
+Time:        3.584 s
 Ran all test suites.
