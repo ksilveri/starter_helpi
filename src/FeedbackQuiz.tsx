@@ -71,8 +71,8 @@ const handlePreviousQuestion = () => {
   };
 
   return (
-    <div className="feedback-survey">
-      <h1>Feedback Survey <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+    <div className="content-box">
+       <h1 style={{color: 'black'}}>Feedback Survey<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
       {currentQuestionIndex < questions.length ? (
         <div className="question-text">
           
@@ -80,7 +80,7 @@ const handlePreviousQuestion = () => {
           <div>
             {questions[currentQuestionIndex].options.map((option, index) => (
               <div className="question-choice" key={index}>
-                <input
+                <input 
                   type="radio"
                   id={`option${index}`}
                   name={`question${currentQuestionIndex}`}
