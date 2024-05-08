@@ -125,13 +125,13 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             </Form.Group>
 
             {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginLeft: '40px'}}>Previous</Button>
             )}
 
             {currentQuestionIndex < 7 - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
+                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '30px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid} style={{marginLeft: '20px'}}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
             
             {error && <p>{error}</p>}
