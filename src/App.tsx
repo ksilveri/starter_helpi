@@ -13,6 +13,7 @@ import Home from './Home';
 
 function App(): JSX.Element{
 
+  
 
 //need to set the page view
 const [pageView, setPageView] = useState("Home");
@@ -39,7 +40,10 @@ const [pageView, setPageView] = useState("Home");
       {pageView === "DetailQuiz" && <DetailQuiz APIkey={''} handleResponse={() => {}} />}
       {pageView === "FeedbackQuiz" && <FeedbackQuiz />}
     </React.Fragment>
+    
   );
+
+  
 }
 
 export default App;
