@@ -34,6 +34,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const [progress, setProgress] = useState<number>(0)
     const [answeredQuestions, setAnsweredQuestions] = useState<boolean[]>(Array(quizQuestions.length).fill(false));
 
+
+    
     const updateProgress = () => {
       const answeredQuestionsCount = responses.filter(response => response !== '').length;
       const progress = ((answeredQuestionsCount + 1) / quizQuestions.length) * 100;
@@ -122,13 +124,11 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
 
-            <p><strong>Let's see which career environment interest you the most.</strong></p>
-
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
               <Form.Label className="custom-label">
                     {quizQuestions[currentQuestionIndex]}
             </Form.Label>
-            <p></p>
+
                 <div className='basic-buttons'>
                   <strong><input
                   type="radio"
@@ -136,7 +136,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                   value="agree"
                   checked={responses[currentQuestionIndex] === 'agree'}
                   onChange={() => handleResponseChange(currentQuestionIndex, 'agree')}
-                  /> Agree
+                  /> Agree         
                   <input
                     type="radio"
                     name={`question_${currentQuestionIndex}`}
