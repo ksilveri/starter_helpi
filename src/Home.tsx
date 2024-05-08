@@ -73,7 +73,6 @@ function Home({setPageView}: Props): JSX.Element{
               The Pathfinder <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link>
           </button>
           <div className="nav-bar">
-          <Button className="button-33" onClick={() => handleViewChange('home')}>Home</Button>
           </div>
         </div>
         {view === 'home' && (
@@ -97,14 +96,14 @@ function Home({setPageView}: Props): JSX.Element{
         <Button className="button-33" style={{ marginTop: '20px', marginRight:'210px'}} onClick={() => setPageView("BasicQuiz")}>{" "}
                         Take our Basic Career Quiz
         </Button>
-        <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={() => handleViewChange('detail')}>
+        <Button className="button-33" style={{ marginTop: '20px', marginLeft:'210px'}} onClick={() => setPageView('DetailQuiz')}>
                         Take our Detailed Career Quiz
                       </Button>
                       <br></br>
                       <br></br>
                       <br></br>
                       <h4>After you complete the quizzes please fill out a Feedback Survey</h4>
-                      <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={() => handleViewChange('feedback')} >
+                      <Button className="button-33" style={{ marginTop: '20px', marginRight:'4px'}} onClick={() => setPageView('FeedbackQuiz')} >
                         Feedback Survey</Button>
         </div>
         )}
