@@ -166,7 +166,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
               <>
               </>
             )}
-            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
+            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px', fontWeight: 'bold'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{careerReport}</Markdown>
 
 
