@@ -130,7 +130,7 @@
     font-family: 'BellBottom.Laser', sans-serif;
     text-align: center;
     font-size: 55px;
-    color:#000000;
+    color: #254117;
 }
 
 .background-video {
@@ -210,6 +210,7 @@
   padding: 0px;
   font-family: 'BellBottom.Laser', sans-serif;
   font-size: 50px;
+  text-align: center;
 }
 
 .button-nav {
@@ -225,4 +226,17 @@
     align-items: center;
     gap: 10px;
     padding:20px;
+  }
+
+  .feedback-background {
+    background-image: url("feedback_background.png");
+    height: 100vh;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
