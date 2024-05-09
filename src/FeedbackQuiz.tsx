@@ -17,10 +17,7 @@ const FeedbackQuiz: React.FC = () => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const totalQuestions = 4;
-  const [isValid, setIsValid] = useState(false);
-  const [buttonClicked, setButtonClicked] = useState(false);
-  
-  let questionLength = 4;
+
 
   const questions: Question[] = [
     {
