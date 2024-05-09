@@ -17,8 +17,10 @@ const FeedbackQuiz: React.FC = () => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const totalQuestions = 4;
- 
-
+  const [isValid, setIsValid] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  
+  let questionLength = 4;
 
   const questions: Question[] = [
     {
@@ -76,10 +78,7 @@ const handlePreviousQuestion = () => {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      
     <div className="content-box">
        <h1 className="basic-title">Feedback Survey<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
       {currentQuestionIndex < questions.length ? (
@@ -88,7 +87,7 @@ const handlePreviousQuestion = () => {
           <p>{questions[currentQuestionIndex].text}</p>
           <div>
             {questions[currentQuestionIndex].options.map((option, index) => (
-              <div className="question-choice" key={index}>
+              <div className="feedback-choice" key={index}>
                 <input 
                   type="radio"
                   id={`option${index}`}
@@ -103,15 +102,18 @@ const handlePreviousQuestion = () => {
             ))}
           </div>
           
+
+          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
+
           {currentQuestionIndex > 0 && (
                 <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
             )}
 
-          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
-          
           {currentQuestionIndex === totalQuestions -1 && (
             <Button className="button-33" onClick={handleSubmitQuestion} style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
           )}
+            
+
 
 {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Thank you for your feedback!!!</p></>}
         </div>
