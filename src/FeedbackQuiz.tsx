@@ -72,7 +72,7 @@ const handlePreviousQuestion = () => {
   
 
   return (
-    <div className="feedback-background">
+    <div className="feedback-background" style={{ height: '100vh', overflow: 'auto' }}>
       <br></br>
       <br></br>
       <br></br>
@@ -104,7 +104,9 @@ const handlePreviousQuestion = () => {
           </div>
           
 
-          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
+          {currentQuestionIndex < questions.length - 1 && (
+              <Button className="button-33" style={{ marginTop: '20px', marginRight: '20px' }} onClick={handleNextQuestion}>Next</Button>
+            )}
 
           {currentQuestionIndex > 0 && (
                 <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
