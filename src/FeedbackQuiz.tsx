@@ -17,7 +17,6 @@ const FeedbackQuiz: React.FC = () => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const totalQuestions = 4;
- 
 
 
   const questions: Question[] = [
@@ -70,17 +69,26 @@ const handlePreviousQuestion = () => {
     setAnswers(updatedAnswers);
   };
 
+  
+
   return (
-    <div className="feedback-survey">
-      <h1>Feedback Survey <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+    <div className="feedback-background">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      
+    <div className="content-box">
+       <h1 className="basic-title">Feedback Survey<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
       {currentQuestionIndex < questions.length ? (
         <div className="question-text">
           
           <p>{questions[currentQuestionIndex].text}</p>
           <div>
             {questions[currentQuestionIndex].options.map((option, index) => (
-              <div className="question-choice" key={index}>
-                <input
+              <div className="question-text" key={index}>
+                <label className="custom-radio-button-feedback">
+                <input 
                   type="radio"
                   id={`option${index}`}
                   name={`question${currentQuestionIndex}`}
@@ -89,18 +97,24 @@ const handlePreviousQuestion = () => {
                   onChange={() => handleOptionSelect(option)}
                 />
                 <label htmlFor={`option${index}`}>{option}</label>
+                </label>
               </div>
+              
             ))}
           </div>
+          
+
+          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
+
           {currentQuestionIndex > 0 && (
                 <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
             )}
 
-          <Button className="button-33" style={{ marginTop: '20px', marginRight:'20px'}} onClick={handleNextQuestion}>Next</Button>
-          
           {currentQuestionIndex === totalQuestions -1 && (
             <Button className="button-33" onClick={handleSubmitQuestion} style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
           )}
+            
+
 
 {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Thank you for your feedback!!!</p></>}
         </div>
@@ -108,6 +122,7 @@ const handlePreviousQuestion = () => {
         <div>
         </div>
       )}
+    </div>
     </div>
   );
 };

@@ -21,8 +21,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
         "3. How do you spend your time?",
         "4. What has been your favorite subject to learn about and why?",
         "5. How would you define success?",
-        "6. Do you enjoy interacting and/or working with other people?",
-        "7. What do you think are your strengths?",
+        "6. How would you describe yourself?",
+        "7. What do you value most in a job?",
     ]
 
     //states used for the textboxes and progress
@@ -105,7 +105,11 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
     return (
         <div className ="detail-quiz">
-             <h1>Detailed Career Quiz<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+          <video autoPlay loop muted className='background-video'>
+            <source src="https://storage.googleapis.com/detailed_questions_bucket/Gen-2%2016s%2C%203214526360%2C%20M%206.mp4" type="video/mp4"/>
+          </video>
+          <div className="content-box">
+             <h1 className="basic-title">Detailed Career Quiz<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
             
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
@@ -120,14 +124,15 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     placeholder="Type response..."/>
             </Form.Group>
 
-            {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
-            )}
 
             {currentQuestionIndex < 7 - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
+                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '30px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid} style={{marginLeft: '20px'}}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+            )}
+
+            {currentQuestionIndex > 0 && (
+                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginLeft: '40px'}}>Previous</Button>
             )}
             
             {error && <p>{error}</p>}
@@ -166,6 +171,7 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
                     </div>
                 </>
             )}
+        </div>
         </div>
     );
 }

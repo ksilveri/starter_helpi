@@ -9,7 +9,10 @@
 }
 .detail-quiz {
     text-decoration: dotted;
+    text-align: center;
+    font-family: "Press Start 2P";
 }
+    
     
 .custom-textbox {
     background-color: #FFFFFF;
@@ -22,10 +25,10 @@
 }
 
 .custom-label{
-    text-align: left;
+    text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 20px;
     
 }
@@ -38,9 +41,6 @@
     color:#254117
 }
 
-.basic-buttons {
-    /*to do*/
-}
 
 .basic-progress-bar .progress-bar {
     background-color:#254117;
@@ -88,6 +88,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #254117;
+    text-align: center;
 }
 
 .progress-bar-fill {
@@ -105,6 +106,8 @@
     font-weight: bold;
     font-size: 20px;
     font-family: sans-serif;
+    text-align: center; 
+    color: #000000; 
 }
 
 .question-choice {
@@ -113,6 +116,7 @@
     font-family: sans-serif;
     display: inline-block;
     margin-right: 10px;
+    color:#000000;
 
 }
 
@@ -121,4 +125,152 @@
     color:#254117;
     padding: 20px;
     font-size: 55px;
+    text-align: center;  
+}
+
+
+.detail-quiz h1 {
+    font-family: 'BellBottom.Laser', sans-serif;
+    text-align: center;
+    font-size: 55px;
+    color: #254117;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content-box {
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px; 
+    padding-bottom: 50px;
+    max-width: 700px; 
+    background-color: #a8a87f;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    border-radius: 10px;
+    z-index: 2;
+}
+.content-box h1, .content-box p {
+    color: #333;
+}
+
+
+
+.custom-radio-button {
+    display: block;
+    background-color: transparent; 
+    background-image: url("https://i.imgur.com/aSurr7W.png");
+    background-attachment: fixed;
+    background-position: center bottom; 
+    background-size: 700px 650px; 
+    background-repeat: no-repeat; 
+    color: #1c3929;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-family: "Press Start 2P";
+    font-size: 12px;
+    border: 2px solid #254117;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: -1px -1px 0#ffffff,  
+  1px -1px 0 #ffffff ,
+ -1px 1px 0 #ffffff,
+  1px 1px 0 #ffffff ; 
+}
+
+.custom-radio-button:hover {
+    background-color: transparent; 
+    color: #a8a87f; 
+}
+
+.custom-radio-button input[type="radio"]:checked + span {
+    color: #a8a87f; 
+}
+
+.custom-radio-button input[type="radio"] {
+    display: none;
+}
+
+
+.basic-title {
+    color: #254117; 
+  text-shadow: -2px -2px 0#ffffff,  
+  2px -2px 0 #ffffff ,
+ -2px 2px 0 #ffffff,
+  2px 2px 0 #ffffff ; 
+  padding: 0px;
+  font-family: 'BellBottom.Laser', sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+.button-nav {
+    margin-top: 15px; 
+    margin-right: 10px; 
+    margin-left: 10px;
+    padding:10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding:20px;
+  }
+
+  .feedback-background {
+    background-image: url("feedback_background.png");
+    height: 100vh;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .feedback-choice {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+    color:#333;
+  }
+
+  .custom-radio-button-feedback {
+    display: block;
+    background-color: transparent; 
+    background-attachment: fixed;
+    background-position: center bottom; 
+    background-size: 700px 650px; 
+    background-repeat: no-repeat; 
+    color: #1c3929;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-family: "Press Start 2P";
+    font-size: 12px;
+    border: 2px solid #254117;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: -1px -1px 0#ffffff,  
+  1px -1px 0 #ffffff ,
+ -1px 1px 0 #ffffff,
+  1px 1px 0 #ffffff ; 
 }

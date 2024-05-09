@@ -1,5 +1,8 @@
+@import "https://fonts.googleapis.com/css?family=Press%20Start%202P";
+
 .App {
   text-align: center;
+  padding-bottom:0;
 }
 
 .body {
@@ -26,6 +29,7 @@
   text-align: center;
   font-family: 'BellBottom.Laser', sans-serif;
   min-height: 10vh;
+  margin-bottom: 0;
 
 }
 
@@ -48,6 +52,7 @@
   margin-top:0px;
   bottom: auto;
   margin-right: 2000px;
+  font-family: 'Press Start 2P';
 }
 
 
@@ -99,12 +104,12 @@
   cursor: pointer;
   display: inline-block;
   
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-family: 'Press Start 2P';
   padding: 7px 20px;
   text-align: center;
   transition: all 250ms;
   border: 0;
-  font-size: 16px;
+  font-size: 12px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -161,12 +166,15 @@
 
 .row {
   display:flex;
+  padding: 0;
+  margin: 0;
 }
 .col {
-  padding-top: 15px;
+  padding-top: 0;
   flex: 50%;
   padding-left: 125px;
   padding-right: 125px;
+
   text-align: center;
 }
 
@@ -205,32 +213,119 @@
 }
 
 body{
-  background-color: #EEEEE0;
+  background-color: whitesmoke;
 }
 
 .links {
-  display: inline;
+  list-style: none;
   margin-right: 50px;
-  font-weight: bold;
-  font-size: 20px;
-  color:#EEEEE0;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  transition: color 0.3s ease;
+  display: flex;
+  color: #f7f9f6;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+ display: inline;
+ margin-right: 50px;
+ color: #eff3ee;
+ text-transform: uppercase;
 }
 
 .links li:hover {
-  color:#0d9c6a;
+ cursor: pointer;
+ color: #d6b47e;
+ background-color: rgba(0,0,0,0.2);
+ position: relative;
 }
 
-.links.active {
-  color:#0d9c6a;
-}
+
 
 .navBar {
-  background-color:#254117;
-  padding: 20px;
+  background-color:#1f3328;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  text-align: center;
+  font-family: 'Press Start 2P';
+  font-size: 10px;
 }
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  background-image: url("https://i.imgur.com/oHUAFdV.png"); 
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.intro-container {
+  background-color: rgba(140, 160, 112, 0.8); 
+  margin: 0px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%; 
+}
+
+.quiz-container, .feedback-container {
+  background-color: rgba(140, 160, 112, 0.8); 
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 60%; 
+}
+
+.button-33 {
+  display: block; 
+  margin: 20px auto;
+  padding: 10px 20px;
+}
 
 
+.Container {
+  padding: 0;
+  margin: 0;
+}
+
+.intro-container h2 {
+  font-family: 'Press Start 2P';
+  font-weight: bold;
+  font-size: 26px;
+  color:#254117;
+  text-shadow: -0.5px -0.5px 0#ffffff,  
+  0.5px -0.5px 0 #ffffff ,
+ -0.5px 0.5px 0 #ffffff,
+  0.5px 0.5px 0 #ffffff ; 
+}
+
+.quiz-container h3 {
+  font-family: 'Press Start 2P';
+  font-size: 24px;
+  color:#254117;
+  text-shadow: -0.5px -0.5px 0#ffffff,  
+  0.5px -0.5px 0 #ffffff ,
+ -0.5px 0.5px 0 #ffffff,
+  0.5px 0.5px 0 #ffffff ; 
+}
+
+.quiz-container p {
+  padding: 20px;
+  font-size: 15px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  color:#000000;
+  
+}

@@ -34,6 +34,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     const [progress, setProgress] = useState<number>(0)
     const [answeredQuestions, setAnsweredQuestions] = useState<boolean[]>(Array(quizQuestions.length).fill(false));
 
+
+    
     const updateProgress = () => {
       const answeredQuestionsCount = responses.filter(response => response !== '').length;
       const progress = ((answeredQuestionsCount + 1) / quizQuestions.length) * 100;
@@ -125,51 +127,45 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     };
     return (
         <div className ="basic-quiz">
-            <h1>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+          <video autoPlay loop muted className='background-video'>
+            <source src = "https://storage.googleapis.com/pathfinder_video/Gen-2%2012s%2C%203620141223%2C%20M%206.mp4" type = "video/mp4"/>
+          </video>
+          <div className = "content-box">
+            <div className='basic-title'>Basic Career Quiz <link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></div>
 
             <ProgressBar progress={progress}/>
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
-
-            <p><strong>Let's see which career environment interest you the most.</strong></p>
 
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
               <Form.Label className="custom-label">
                     {quizQuestions[currentQuestionIndex]}
             </Form.Label>
-            <p></p>
-                <div className='basic-buttons'>
-                  <strong><input
-                  type="radio"
-                  name={`question_${currentQuestionIndex}`}
-                  value="agree"
-                  checked={responses[currentQuestionIndex] === 'agree'}
-                  onChange={() => handleResponseChange(currentQuestionIndex, 'agree')}
-                  /> Agree
-                  <input
-                    type="radio"
-                    name={`question_${currentQuestionIndex}`}
-                    value="Neither Agree nor Disagree"
-                    checked={responses[currentQuestionIndex] === 'Neither Agree nor Disagree'}
-                    onChange={() => handleResponseChange(currentQuestionIndex, 'Neither Agree nor Disagree')}
-                  /> Neither Agree nor Disagree
-                  <input
-                    type="radio"
-                    name={`question_${currentQuestionIndex}`}
-                    value="disagree"
-                    checked={responses[currentQuestionIndex] === 'disagree'}
-                    onChange={() => handleResponseChange(currentQuestionIndex, 'disagree')}
-                  /> Disagree</strong>
-                  </div>
+
+            <div className='basic-buttons'>
+              {['Strongly Agree', 'Agree', 'Neither Agree nor Disagree', 'Disagree', 'Strongly Disagree'].map((option, index) => (
+              <label key={index} className="custom-radio-button">
+              <input
+                type="radio"
+                name={`question_${currentQuestionIndex}`}
+                value={option}
+                checked={responses[currentQuestionIndex] === option}
+                onChange={() => handleResponseChange(currentQuestionIndex, option)}
+                />
+            <span>{option}</span>
+            </label>
+        ))}
+          </div>
                   <p></p>
             </Form.Group>
-            {currentQuestionIndex > 0 && (
-                <Button className="button-33" onClick={handlePreviousQuestion} style={{marginRight: '10px'}}>Previous</Button>
-            )}
+
 
             {currentQuestionIndex < quizQuestions.length - 1 ? (
-                <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
+                <Button className="button-33 button-nav" onClick={handleNextQuestion} style={{marginLeft: '10px', marginTop: '15px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={handleShowResponses} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><><Button className="button-33" onClick={handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={handleShowResponses} disabled={!isValid}>Click Here To See Your Responses.</Button></><><Button className="button-33 button-nav" onClick={handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33 button-nav" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></></>
+            )}
+            {currentQuestionIndex > 0 && (
+                <Button className="button-33 button-nav"  onClick={handlePreviousQuestion} style={{marginRight: '20px', marginTop: '15px'}}>Previous</Button>
             )}
 
             {error && <p>{error}</p>}
@@ -182,7 +178,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
               <>
               </>
             )}
-            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
+            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px', fontWeight: 'bold'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{careerReport}</Markdown>
 
 
@@ -202,6 +198,8 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
                     </div>
                 </>
             )}
+         </div>
+
         </div>
     );
 }
