@@ -240,3 +240,12 @@
     object-fit: cover;
     z-index: -1;
   }
+
+  .feedback-choice {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+    color:#333;
+  }
