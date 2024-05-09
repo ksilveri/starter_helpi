@@ -71,8 +71,17 @@ const handlePreviousQuestion = () => {
   };
 
   return (
+    <div className="feedback-background">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     <div className="content-box">
-       <h1 style={{color: 'black'}}>Feedback Survey<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
+       <h1 className="basic-title">Feedback Survey<link href="https://fonts.cdnfonts.com/css/bell-bottom-laser" rel="stylesheet"></link></h1>
       {currentQuestionIndex < questions.length ? (
         <div className="question-text">
           
@@ -90,8 +99,10 @@ const handlePreviousQuestion = () => {
                 />
                 <label htmlFor={`option${index}`}>{option}</label>
               </div>
+              
             ))}
           </div>
+          
           {currentQuestionIndex > 0 && (
                 <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
             )}
@@ -108,6 +119,7 @@ const handlePreviousQuestion = () => {
         <div>
         </div>
       )}
+    </div>
     </div>
   );
 };
