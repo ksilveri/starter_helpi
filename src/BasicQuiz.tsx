@@ -71,6 +71,18 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
     }
   };
 
+  const handleShowResponses = () => {
+    const responseWindow = window.open('', 'ResponseWindow', 'width=600,height=400');
+    if (responseWindow) {
+      const htmlContent = responses.map((response, index) => (
+        `<p><strong>Question ${index + 1}: </strong>${quizQuestions[index]}</p><p><strong>Response: </strong>${response}</p>`
+      )).join('');
+      responseWindow.document.body.innerHTML = htmlContent;
+    } else {
+      alert('Popup blocked! Please allow pop-ups for this site.');
+    }
+  };
+
   const formattedProgress = progress.toFixed(0);
 
   const handleSubmit = async () => {
@@ -157,7 +169,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             {currentQuestionIndex < quizQuestions.length - 1 ? (
                 <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '10px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={handleShowResponses} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
 
             {error && <p>{error}</p>}
