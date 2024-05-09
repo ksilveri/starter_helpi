@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (51 ms)
+  ✕ renders learn react link (48 ms)
 
   ● renders learn react link
 
@@ -126,34 +126,34 @@ FAIL src/App.test.tsx
               [36m</button>[39m
             [36m</div>[39m
           [36m</div>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"footer"[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"footer"[39m
+        [36m>[39m
+          [36m<form[39m
+            [33mclass[39m=[32m""[39m
           [36m>[39m
-            [36m<form[39m
-              [33mclass[39m=[32m""[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"form-label"[39m
             [36m>[39m
-              [36m<label[39m
-                [33mclass[39m=[32m"form-label"[39m
-              [36m>[39m
-                [0mAPI Key: [0m
-                [36m<link[39m
-                  [33mhref[39m=[32m"https://fonts.cdnfonts.com/css/bell-bottom-laser"[39m
-                  [33mrel[39m=[32m"stylesheet"[39m
-                [36m/>[39m
-              [36m</label>[39m
-              [36m<input[39m
-                [33mclass[39m=[32m"form-control"[39m
-                [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-                [33mtype[39m=[32m"password"[39m
+              [0mAPI Key: [0m
+              [36m<link[39m
+                [33mhref[39m=[32m"https://fonts.cdnfonts.com/css/bell-bottom-laser"[39m
+                [33mrel[39m=[32m"stylesheet"[39m
               [36m/>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"button-34 btn btn-primary"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mSubmit[0m
-              [36m</button>[39m
-            [36m</form>[39m
-          [36m</div>[39m
+            [36m</label>[39m
+            [36m<input[39m
+              [33mclass[39m=[32m"form-control"[39m
+              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+              [33mtype[39m=[32m"password"[39m
+            [36m/>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"button-34 btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSubmit[0m
+            [36m</button>[39m
+          [36m</form>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -192,11 +192,11 @@ go away.[0m
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
 All files              |    6.93 |     9.09 |    3.38 |     7.4 |                   
- App.tsx               |   33.33 |     62.5 |   14.28 |   33.33 | 30-33             
+ App.tsx               |   46.66 |       60 |   11.11 |   46.66 | 22,32-38,50-53    
  BasicQuiz.tsx         |       0 |        0 |       0 |       0 | 15-179            
  DetailQuiz.tsx        |       0 |        0 |       0 |       0 | 18-164            
  FeedbackQuiz.tsx      |    4.54 |        0 |       0 |    4.76 | 16-97             
- Home.tsx              |   47.05 |       50 |    12.5 |   47.05 | 19,38-44,49,55-79 
+ Home.tsx              |    37.5 |      100 |   16.66 |    37.5 | 32,38-62          
  RadioButtonHelper.tsx |       0 |      100 |       0 |       0 | 17-30             
  TemplateReport.tsx    |       0 |      100 |       0 |       0 | 8-9               
  index.tsx             |       0 |      100 |     100 |       0 | 9-21              
@@ -206,5 +206,5 @@ All files              |    6.93 |     9.09 |    3.38 |     7.4 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.442 s
+Time:        3.339 s
 Ran all test suites.
