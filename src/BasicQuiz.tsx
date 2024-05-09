@@ -13,21 +13,21 @@ import ProgressBar from './progressBar';
 function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
 
     const quizQuestions = [
-        "1. I enjoy working in a team environment rather than independently.",
-        "2. I prefer a job with a structured routine over one that offers flexibility.",
-        "3. I am comfortable with taking on leadership roles and making decisions.",
-        "4. I value continuous learning and skill development in my career.",
-        "5. I am willing to relocate for career advancement opportunities.",
-        "6. I feel motivated when my work directly contributes to making a positive impact on society.",
-        "7. I prefer a fast-paced work environment where tasks change frequently.",
-        "8. I prioritize work-life balance over career advancement.",
-        "9. I feel confident in my ability to adapt to new technologies and tools in the workplace.",
-        "10. I enjoy networking and building professional relationships with others in my field.",
-        "11. I enjoy thinking outside the box to develop new ideas and solutions.",
-        "12. I remain calm and focused under pressure, even in challenging situations.",
-        "13. I am skilled at communicating ideas effectively to a diverse audience.",
-        "14. I am interested in exploring entrepreneurship or starting my own business.",
-        "15. I excel at analyzing complex problems and developing innovative solutions."
+        "I enjoy working in a team environment rather than independently.",
+        "I prefer a job with a structured routine over one that offers flexibility.",
+        "I am comfortable with taking on leadership roles and making decisions.",
+        "I value continuous learning and skill development in my career.",
+        "I am willing to relocate for career advancement opportunities.",
+        "I feel motivated when my work directly contributes to making a positive impact on society.",
+        "I prefer a fast-paced work environment where tasks change frequently.",
+        "I prioritize work-life balance over career advancement.",
+        "I feel confident in my ability to adapt to new technologies and tools in the workplace.",
+        "I enjoy networking and building professional relationships with others in my field.",
+        "I enjoy thinking outside the box to develop new ideas and solutions.",
+        "I remain calm and focused under pressure, even in challenging situations.",
+        "I am skilled at communicating ideas effectively to a diverse audience.",
+        "I am interested in exploring entrepreneurship or starting my own business.",
+        "I excel at analyzing complex problems and developing innovative solutions."
     ];
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -52,7 +52,6 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
   
 
     const [responses, setResponses] = useState(Array(quizQuestions.length).fill(''));
-    const [showResponses, setShowResponses] = useState(false);
     const [isValid, setIsValid] = useState(false);
     const [careerReport, setCareerReport] = useState('');
     const [error, setError] = useState('');
@@ -70,6 +69,18 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
       const newAnsweredQuestions = [...answeredQuestions];
       newAnsweredQuestions[index] = true;
       setAnsweredQuestions(newAnsweredQuestions);
+    }
+  };
+
+  const handleShowResponses = () => {
+    const responseWindow = window.open('', 'ResponseWindow', 'width=600,height=400');
+    if (responseWindow) {
+      const htmlContent = responses.map((response, index) => (
+        `<p><strong>Question ${index + 1}: </strong>${quizQuestions[index]}</p><p><strong>Response: </strong>${response}</p>`
+      )).join('');
+      responseWindow.document.body.innerHTML = htmlContent;
+    } else {
+      alert('Popup blocked! Please allow pop-ups for this site.');
     }
   };
 
@@ -126,7 +137,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
 
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
               <Form.Label className="custom-label">
-                    {quizQuestions[currentQuestionIndex]}
+                    {currentQuestionIndex+1}. {quizQuestions[currentQuestionIndex]}
             </Form.Label>
 
             <div className='basic-buttons'>
@@ -150,7 +161,7 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             {currentQuestionIndex < quizQuestions.length - 1 ? (
                 <Button className="button-33 button-nav" onClick={handleNextQuestion} style={{marginLeft: '10px', marginTop: '15px'}}>Next</Button>
             ) : (
-              <><Button className="button-33 button-nav" onClick= { handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33 button-nav" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick={handleSubmit} disabled={!isValid || buttonClicked}>Submit</Button><p></p><Button className="button-33" onClick={handleShowResponses} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
             {currentQuestionIndex > 0 && (
                 <Button className="button-33 button-nav"  onClick={handlePreviousQuestion} style={{marginRight: '20px', marginTop: '15px'}}>Previous</Button>
@@ -168,24 +179,6 @@ function BasicQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (r
             )}
             {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px', fontWeight: 'bold'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{careerReport}</Markdown>
-
-
-            {showResponses && (
-                <>
-                    <h2>Collected Responses:</h2>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <ul>
-                        {responses.map((response, index) => (
-                            <li key={index} style={{ textAlign: 'left' }}>
-                                <strong>Question: </strong>{quizQuestions[index]}
-                                <br />
-                                <strong>Response: </strong> {response}
-                            </li>
-                        ))}
-                    </ul>
-                    </div>
-                </>
-            )}
          </div>
 
         </div>
