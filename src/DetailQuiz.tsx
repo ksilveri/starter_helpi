@@ -16,20 +16,19 @@ import ProgressBar from './progressBar';
 function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (response:string) => void}) {
 
     const detailQuestions = [
-        "1. Describe your ideal work environment.",
-        "2. Describe your ideal job.",
-        "3. How do you spend your time?",
-        "4. What has been your favorite subject to learn about and why?",
-        "5. How would you define success?",
-        "6. How would you describe yourself?",
-        "7. What do you value most in a job?",
+        "Describe your ideal work environment.",
+        "Describe your ideal job.",
+        "How do you spend your time?",
+        "What has been your favorite subject to learn about and why?",
+        "How would you define success?",
+        "How would you describe yourself?",
+        "What do you value most in a job?",
     ]
 
     //states used for the textboxes and progress
     const [responses, setResponses] = useState(Array(7).fill(''));
     const [isValid, setIsValid] = useState(false);
     const [report, setReport] = useState('');
-    const [showResponses, setShowResponses] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -42,6 +41,18 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
       const answeredQuestionsCount = responses.filter(response => response !== '').length;
       const progress = ((answeredQuestionsCount + 1) / detailQuestions.length) * 100;
       setProgress(progress);
+    };
+
+    const handleShowResponses = () => {
+      const responseWindow = window.open('', 'ResponseWindow', 'width=600,height=400');
+      if (responseWindow) {
+        const htmlContent = responses.map((response, index) => (
+          `<p><strong>Question ${index + 1}: </strong>${detailQuestions[index]}</p><p><strong>Response: </strong>${response}</p>`
+        )).join('');
+        responseWindow.document.body.innerHTML = htmlContent;
+      } else {
+        alert('Popup blocked! Please allow pop-ups for this site.');
+      }
     };
 
     const formattedProgress = progress.toFixed(0);
@@ -115,7 +126,8 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             <div className="progress-bar-label">{`${formattedProgress}%`}</div>
 
             <Form.Group controlId={`question${currentQuestionIndex + 1}`}>
-                <Form.Label className="custom-label">{detailQuestions[currentQuestionIndex]}
+                <Form.Label className="custom-label">
+                {currentQuestionIndex+1}. {detailQuestions[currentQuestionIndex]}
                 </Form.Label>
                 <Form.Control
                     className="custom-textbox"
@@ -128,7 +140,9 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
             {currentQuestionIndex < 7 - 1 ? (
                 <Button className="button-33" onClick={handleNextQuestion} style={{marginLeft: '30px'}}>Next</Button>
             ) : (
-              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid} style={{marginLeft: '20px'}}>Submit</Button><p></p><Button className="button-33" onClick={() => setShowResponses(true)} disabled={!isValid}>Click Here To See Your Responses.</Button></>
+              <><Button className="button-33" onClick= { submitAnswers} disabled={!isValid} style={{marginLeft: '20px'}}>Submit</Button>
+              <p></p>
+              <Button className="button-33" onClick={handleShowResponses} disabled={!isValid}>Click Here To See Your Responses.</Button></>
             )}
 
             {currentQuestionIndex > 0 && (
@@ -154,23 +168,6 @@ function DetailQuiz({APIkey, handleResponse}: {APIkey: string, handleResponse: (
 
            {isSubmitted && <><p style={{marginTop: '25px'}}><FontAwesomeIcon icon={faCheckCircle} color="#254117" size="5x" /></p><p style={{fontSize: '25px'}}>Submission successful! Your responses have been processed.</p></>}
             <Markdown>{report}</Markdown>
-
-            {showResponses && (
-                <>
-                    <h2>Collected Responses:</h2>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <ul>
-                        {responses.map((response, index) => (
-                            <li key={index} style={{ textAlign: 'left' }}>
-                                <strong>Question: </strong>{detailQuestions[index]}
-                                <br />
-                                <strong>Response: </strong> {response}
-                            </li>
-                        ))}
-                    </ul>
-                    </div>
-                </>
-            )}
         </div>
         </div>
     );
