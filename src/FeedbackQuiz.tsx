@@ -69,6 +69,8 @@ const handlePreviousQuestion = () => {
     setAnswers(updatedAnswers);
   };
 
+  
+
   return (
     <div className="feedback-background">
       <br></br>
@@ -84,7 +86,8 @@ const handlePreviousQuestion = () => {
           <p>{questions[currentQuestionIndex].text}</p>
           <div>
             {questions[currentQuestionIndex].options.map((option, index) => (
-              <div className="feedback-choice" key={index}>
+              <div className="question-text" key={index}>
+                <label className="custom-radio-button-feedback">
                 <input 
                   type="radio"
                   id={`option${index}`}
@@ -94,6 +97,7 @@ const handlePreviousQuestion = () => {
                   onChange={() => handleOptionSelect(option)}
                 />
                 <label htmlFor={`option${index}`}>{option}</label>
+                </label>
               </div>
               
             ))}

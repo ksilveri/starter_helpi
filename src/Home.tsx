@@ -75,7 +75,7 @@ function Home({setPageView}: Props): JSX.Element{
           </Button>
         </Container>
         <Container className="feedback-container">
-          <h4>After you complete the quizzes please fill out a Feedback Survey<link href="https://fonts.googleapis.com/css?family=Press%20Start%202P" rel="stylesheet"></link></h4>
+          <h4>After you complete the quizzes please fill out this Feedback Survey so we can improve your experience!!!<link href="https://fonts.googleapis.com/css?family=Press%20Start%202P" rel="stylesheet"></link></h4>
           <Button className="button-33" onClick={() => setPageView('FeedbackQuiz')}>
             Feedback Survey
           </Button>

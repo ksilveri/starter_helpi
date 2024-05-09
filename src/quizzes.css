@@ -9,7 +9,10 @@
 }
 .detail-quiz {
     text-decoration: dotted;
+    text-align: center;
+    font-family: "Press Start 2P";
 }
+    
     
 .custom-textbox {
     background-color: #FFFFFF;
@@ -249,3 +252,25 @@
     margin-right: 10px;
     color:#333;
   }
+
+  .custom-radio-button-feedback {
+    display: block;
+    background-color: transparent; 
+    background-attachment: fixed;
+    background-position: center bottom; 
+    background-size: 700px 650px; 
+    background-repeat: no-repeat; 
+    color: #1c3929;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-family: "Press Start 2P";
+    font-size: 12px;
+    border: 2px solid #254117;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: -1px -1px 0#ffffff,  
+  1px -1px 0 #ffffff ,
+ -1px 1px 0 #ffffff,
+  1px 1px 0 #ffffff ; 
+}
