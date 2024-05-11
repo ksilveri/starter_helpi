@@ -59,17 +59,21 @@ const handlePreviousQuestion = () => {
   setCurrentQuestionIndex(prevIndex => prevIndex - 1);
 };
 
+//will only let you submit the feedback survey if all questions answered
  const handleSubmitQuestion = () => {
-  setIsSubmitted(true);
+  const answered = answers.filter(answer => answer !== undefined && answer !== '');
+  if (answered.length === totalQuestions){
+    setIsSubmitted(true);
+  }
  } 
 
   const handleOptionSelect = (option: string) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = option;
     setAnswers(updatedAnswers);
+    
   };
 
-  
 
   return (
     <div className="feedback-background" style={{ height: '100vh', overflow: 'auto' }}>
@@ -107,14 +111,14 @@ const handlePreviousQuestion = () => {
           {currentQuestionIndex < questions.length - 1 && (
               <Button className="button-33" style={{ marginTop: '20px', marginRight: '20px' }} onClick={handleNextQuestion}>Next</Button>
             )}
+          
+          {currentQuestionIndex === totalQuestions -1 && (
+            <Button className="button-33" onClick={handleSubmitQuestion} style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
+          )}
 
           {currentQuestionIndex > 0 && (
                 <Button className="button-33" onClick={handlePreviousQuestion} style={{marginTop: '20px', marginRight: '20px'}}>Previous</Button>
             )}
-
-          {currentQuestionIndex === totalQuestions -1 && (
-            <Button className="button-33" onClick={handleSubmitQuestion} style={{marginTop: '20px', marginRight: '20px'}} >Submit</Button>
-          )}
             
 
 
