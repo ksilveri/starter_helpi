@@ -274,3 +274,17 @@
  -1px 1px 0 #ffffff,
   1px 1px 0 #ffffff ; 
 }
+
+.custom-radio-button-feedback:hover {
+    background-color: transparent; 
+    color: #a8a87f; 
+}
+
+.custom-radio-button-feedback input[type="radio"]:checked + span {
+    color: #a8a87f; 
+}
+
+.custom-radio-button-feedback input[type="radio"] {
+    display: none;
+}
+
